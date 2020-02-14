@@ -10,7 +10,7 @@ const Hotel = require("../../models/Hotel");
 
 router.get("/test", (req, res) =>
     res.json({
-        msg: "transport Works"
+        msg: "hotel Works"
     })
 );
 
@@ -20,16 +20,19 @@ router.post(
         session: false
 
     }),*/
+
     (req, res) => {
-        const cit = new Transport(
+        const cit = new Hotel(
             {
 
                 id: req.body.id,
                 City: req.body.City,
-                NoOfVehicles: req.body.NoOfVehicles,
+                HotelName: req.body.HotelName,
+                NoOfRooms: req.body.NoOfRooms,
                 VendorName: req.body.VendorName,
                 VendorPhoneNo: req.body.VendorPhoneNo,
-                TransportType: req.body.TransportType,
+                roomTypes: req.body.roomTypes,
+                HotelServices: req.body.HotelServices,
             }
         );
 
@@ -38,14 +41,14 @@ router.post(
 
     }
 );
-router.get("/getAllTransport",
+router.get("/getAllHotel",
     /*   
     passport.authenticate("jwt", {
             session: false
         }),
         */
     (req, res) => {
-        City.find()
+        Hotel.find()
             .then(cit => {
                 if (!cit) {
                     return res.status(404).json(errors);
@@ -53,25 +56,26 @@ router.get("/getAllTransport",
                 res.json(cit);
             })
             .catch(err => res.status(404).json({
-                cit: 'There is no transport'
+                cit: 'There is no hotel'
             }));
 
     });
 
-router.get("/getTransport/:id",
-    /*passport.authenticate("jwt", {
-        session: false
-    }),*/
-    (req, res) => {
-        console.log(req.param.id)
-        Transport.findOne({ '_id': (req.params.id) })
-            .then(cit => res.json(cit))
-            .catch(err =>
-                res.status(404).json({
-                    nocityfound: "no transport found with that id"
-                })
-            );
-    });
+
+// router.get("/getTransport/:id",
+//     /*passport.authenticate("jwt", {
+//         session: false
+//     }),*/
+//     (req, res) => {
+//         console.log(req.param.id)
+//         Transport.findOne({ '_id': (req.params.id) })
+//             .then(cit => res.json(cit))
+//             .catch(err =>
+//                 res.status(404).json({
+//                     nocityfound: "no transport found with that id"
+//                 })
+//             );
+//     });
 
 
 router.post("/edit/:id",
@@ -80,11 +84,11 @@ router.post("/edit/:id",
     }),*/
     (req, res) => {
         let id = req.params.id;
-        Transport.findById(id)
+        Hotel.findById(id)
             .then(cit => res.json(cit))
             .catch(err =>
                 res.status(404).json({
-                    notransportfound: "no tansport found with that id"
+                    nohotelfound: "no hotel found with that id"
                 }));
     })
 
@@ -93,15 +97,20 @@ router.post("/update/:id",
         session: false
     }),*/
     (req, res) => {
-        Transport.findById(req.params.id)
+        Hotel.findById(req.params.id)
             .then(cit => {
 
+
+
+
                 cit.id = req.body.id,
-                    cit.NoOfVehicles = req.body.NoOfVehicles,
+                    cit.City = req.body.City,
+                    cit.HotelName = req.body.HotelName,
+                    cit.NoOfRooms = req.body.NoOfRooms,
                     cit.VendorName = req.body.VendorName,
                     cit.VendorPhoneNo = req.body.VendorPhoneNo,
-                    cit.TransportType = req.body.TransportType,
-                    cit.City = req.body.City,
+                    cit.roomTypes = req.body.roomTypes,
+                    cit.HotelServices = req.body.HotelServices,
 
                     cit.save()
                         .then(cit => {
@@ -110,7 +119,7 @@ router.post("/update/:id",
                         })
                         .catch(err =>
                             res.status(404).json({
-                                notransportfound: "no transport found with that id"
+                                nohotelfound: "no hotel found with that id"
                             }));
 
 
@@ -121,14 +130,14 @@ router.delete("/delete/:id",
         session: false
     }),*/
     (req, res) => {
-        Transport.findOneAndDelete({ '_id': req.params.id })
+        Hotel.findOneAndDelete({ '_id': req.params.id })
             .then(city => {
                 res.json("Deleted Successfully");
                 //return res.json({ error: "username already exists" });
             })
             .catch(err =>
                 res.json({
-                    nocityfound: "no transport found with that id"
+                    nohotelfound: "no hotel found with that id"
                     //id: req.params.id
                 })
             );

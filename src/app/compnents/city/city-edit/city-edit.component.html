@@ -1,0 +1,149 @@
+<div *ngIf="disp" class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Create City</li>
+    </ol>
+  </nav>
+
+  <div class="page-content">
+    <div class="row">
+      <div class="col col-md-8">
+        <form
+          class="create-form"
+          [formGroup]="exampleForm"
+          novalidate
+          (ngSubmit)="onSubmit(exampleForm.value)"
+        >
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="City Name"
+                class="form-control"
+                formControlName="CityName"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.CityName"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('CityName').hasError(validation.type) &&
+                  (exampleForm.get('CityName').dirty ||
+                    exampleForm.get('CityName').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Stay Priority"
+                class="form-control"
+                formControlName="StayPriority"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.StayPriority"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('StayPriority').hasError(validation.type) &&
+                  (exampleForm.get('StayPriority').dirty ||
+                    exampleForm.get('StayPriority').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Longitude"
+                class="form-control"
+                formControlName="Longitude"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.Longitude"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('Longitude').hasError(validation.type) &&
+                  (exampleForm.get('Longitude').dirty ||
+                    exampleForm.get('Longitude').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Latitude"
+                class="form-control"
+                formControlName="Latitude"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.Latitude"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('Latitude').hasError(validation.type) &&
+                  (exampleForm.get('Latitude').dirty ||
+                    exampleForm.get('Latitude').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Maximum Stop"
+                class="form-control"
+                formControlName="MaximumStop"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.MaximumStop"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('MaximumStop').hasError(validation.type) &&
+                  (exampleForm.get('MaximumStop').dirty ||
+                    exampleForm.get('MaximumStop').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-4">
+              <button
+                mat-raised-button
+                class="submit-button"
+                color="primary"
+                type="submit"
+                [disabled]="!exampleForm.valid"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

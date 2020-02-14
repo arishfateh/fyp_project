@@ -1,0 +1,105 @@
+<div *ngIf="display">
+  <section *ngIf="disp" class="white-stripe arrow">
+    <div class="container">
+      <h3>Destinations</h3>
+    </div>
+  </section>
+  <section class="timeline">
+    <div class="container" *ngFor="let item of itinerary.todo">
+      <div class="row">
+        <div class="country-block col-md-8">
+          <i></i>
+
+          <h5>Route: {{ item.fromcity }}---->{{ item.cityname }}</h5>
+
+          <br />
+          <h5>
+            Route To follow
+          </h5>
+          <div *ngFor="let it of item.CurrentRoute">
+            <h6>{{ it.StartPoint }}----->{{ it.EndPoint }}</h6>
+          </div>
+          <br />
+
+          <button
+            style="width: 150px;align-self: right;"
+            type="button"
+            class="btn btn-danger wrn-btn"
+            (click)="changestay(item)"
+          >
+            Change Stay Point
+          </button>
+          <div *ngIf="displaystaypoints">
+            <div *ngFor="let it of staypointsname">
+              <button
+                style="width: 150px;align-self: right;"
+                type="button"
+                class="btn btn-danger wrn-btn"
+                (click)="changestaypoint(it, item)"
+              >
+                {{ it }}
+              </button>
+            </div>
+          </div>
+
+          <h5>Attraction Point To Visit:</h5>
+          <div *ngIf="item.AttractionPoints">
+            <div *ngFor="let it of item.AttractionPoints">
+              <h5>
+                {{ it.AttractionName }}
+              </h5>
+            </div>
+          </div>
+          <button
+            style="width: 150px;align-self: right;"
+            type="button"
+            class="btn btn-danger wrn-btn"
+            (click)="changeattraction(item)"
+          >
+            Change Attraction Point
+          </button>
+          <button
+            style="width: 150px;align-self: right;"
+            type="button"
+            class="btn btn-danger wrn-btn"
+            (click)="deleteattraction(item)"
+          >
+            Delete Attraction Point
+          </button>
+          <div *ngIf="displattr">
+            <div *ngFor="let it of deleteattr">
+              <button
+                style="width: 150px;align-self: right;"
+                type="button"
+                class="btn btn-danger wrn-btn"
+                (click)="deletingattr(it, item)"
+              >
+                {{ it }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="date-block col-md-4">
+          <div>DayNo: {{ item.Dayno }}</div>
+        </div>
+      </div>
+    </div>
+    <button
+      style="width: 150px;align-self: left;"
+      type="button"
+      class="btn btn-danger wrn-btn"
+      (click)="getCost()"
+    >
+      Get Trip Cost
+    </button>
+    <button
+      style="width: 150px;align-self: left;"
+      type="button"
+      class="btn btn-danger wrn-btn"
+      (click)="reset()"
+    >
+      Reset to default
+    </button>
+  </section>
+</div>

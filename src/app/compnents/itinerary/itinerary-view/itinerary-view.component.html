@@ -1,0 +1,67 @@
+<div class="image">
+<div class="create-page">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        View Itinerary
+      </li>
+    </ol>
+  </nav>
+
+  <div *ngIf="itinerary">
+    <div *ngIf="itinerary">
+      <div class="list-group users-list">
+        <div
+          *ngFor="let item of all"
+          class="list-group-item list-group-item-action flex-column align-items-start"
+        >
+          <div class="row">
+            <div class="col col-md-8 text-col">
+              <h4>Destination: {{ item.iti.Destination }}</h4>
+              <h6 class="mb-1">Group Type: {{ item.iti.GroupType }}</h6>
+              <h6 class="mb-1">No of Days: {{ item.iti.NoOfDays }}</h6>
+              <h6 class="mb-1">No of People: {{ item.iti.NoOfPeople }}</h6>
+              <h6 class="mb-1">Price Bracket: {{ item.iti.PriceBracket }}</h6>
+              <h6 class="mb-1">Totoal Cost: {{ item.iti.TotalCost }}</h6>
+            </div>
+            <mat-toolbar style="margin-bottom:10px;background:none">
+              <span>ToDo</span>
+              <span class="fill-remaining-space"></span>
+            </mat-toolbar>
+
+            <div
+              *ngFor="let i of item.days"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <h5>Day: {{ i.DayNo }}</h5>
+              <h6>{{ i.StartCity }} ---> {{ i.EndCity }}</h6>
+              <h6>Stay City: {{ i.StayCity }}</h6>
+              <div
+                *ngFor="let j of i.Activity"
+                class="list-group-item list-group-item-action flex-column align-items-start"
+              >
+                <h5 class="mb-1">{{ j.AttractionName }}</h5>
+                <h6>City: {{ j.City }}</h6>
+                <h6>Type: {{ j.Type }}</h6>
+                <h6>Price: {{ j.Price }}</h6>
+                <h6>Priority: {{ j.Priority }}</h6>
+                <h6>Time: {{ j.Time }}</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-md-2 actions-col">
+            <button
+              class="btn btn-outline-primary action"
+              (click)="onDelete(item.iti.ID)"
+              type="button"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

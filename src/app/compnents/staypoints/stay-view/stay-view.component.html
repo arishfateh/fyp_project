@@ -1,0 +1,43 @@
+<div class="image">
+    <div class="container-fluid">
+      <div class="row">
+      
+        
+          <div class="col-md-12">
+            <h3 style="text-align: center">Stay Points</h3>
+          </div>
+        
+       <div class="col-md-2"></div>
+       <div class="col-md-8">
+  <div *ngIf="stayList">
+      <div class="col-md-12">
+          <h5>NO of Total Stay Points : {{ len }}</h5>
+        </div>
+      <div
+        *ngFor="let item of stayList"
+        class="list-group-item list-group-item-action flex-column align-items-start"
+      >
+        <div class="row">
+          <div class="col col-md-8 text-col">
+            <h5>Stay City: {{ item.StopOverCity }}</h5>
+            <h6 class="mb-1">
+              {{ item.DepartureCity }} ---> {{ item.DestinationCity }}
+            </h6>
+
+            <h6>Priority: {{ item.Priority }}</h6>
+          </div>
+          <div class="col col-md-2 actions-col">
+            <button
+              class="btn btn-outline-primary action"
+              (click)="onDelete(item.ID)"
+              type="button"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div></div>

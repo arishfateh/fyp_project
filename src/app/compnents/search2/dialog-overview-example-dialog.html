@@ -1,0 +1,46 @@
+<mat-dialog-content style="width: 800px;height: 500px;">
+  <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="10px">
+    <div *ngFor="let imgsrc of data.images">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{imgsrc.AttractionName}}</mat-card-title>
+          <mat-card-subtitle> {{imgsrc.City}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style type="text/css">
+              .zoomin img {
+                height: 200px;
+                width: 200px;
+                -webkit-transition: all 2s ease;
+                -moz-transition: all 2s ease;
+                -ms-transition: all 2s ease;
+                transition: all 2s ease;
+              }
+              .zoomin img:hover {
+                width: 300px;
+                height: 300px;
+              }
+            </style>
+          </head>
+          <body>
+            <div class="zoomin">
+              <img
+                src="assets/h.PNG"
+                title="All you need to know about CSS Transitions "
+                (click)="save(imgsrc)"
+              />
+            </div>
+          </body>
+        </html>
+        <mat-card-content> </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

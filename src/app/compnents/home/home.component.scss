@@ -1,0 +1,118 @@
+@import "~src/app/theme.scss";
+.sidenav-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100% !important;
+  z-index: 5;
+  background-color: rgb(4, 46, 4);
+}
+
+.icon-padding {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.icon-padding1 {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.nav-list-exp {
+  padding: 0 !important;
+}
+
+.nav-list-item {
+  background-color: #fff;
+  transition: background 0.2s linear;
+}
+
+.mat-icon-active mat-icon {
+  transition: color 0.2s linear;
+  color: mat-color($primary) !important;
+}
+
+.nav-category-open {
+  transition: color 0.2s linear;
+  color: mat-color($primary) !important;
+}
+.nav-list-item:hover {
+  cursor: pointer;
+  background: #c5c5c5;
+}
+
+.nav-list-item-text {
+  padding-left: 18px;
+  font-size: 0.8em;
+}
+
+.nav-list-icon {
+  margin-left: 5px;
+}
+
+mat-toolbar {
+  height: 64px !important;
+  min-height: 64px !important;
+}
+mat-toolbar-row {
+  height: 64px !important;
+}
+
+.image {
+  background-image: url("./image/h.ico");
+  width: 100%;
+  height: 100%;
+}
+.dropbtn {
+  background-color: rgb(4, 46, 4);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgb(4, 46, 4);
+  min-width: 160px;
+  color: white;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: black;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */

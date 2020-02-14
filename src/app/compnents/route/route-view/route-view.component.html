@@ -1,0 +1,77 @@
+<mat-table [dataSource]="routeList" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="StartPoint">
+    <mat-header-cell *matHeaderCellDef> StartPoint </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="StartPoint: ">
+      {{ element.StartPoint }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="EndPoint">
+    <mat-header-cell *matHeaderCellDef> EndPoint </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="EndPoint: ">
+      {{ element.EndPoint }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Distance(m)">
+    <mat-header-cell *matHeaderCellDef> Distance(m) </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Distance(m): ">
+      {{ element.Distance }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Time(min)">
+    <mat-header-cell *matHeaderCellDef> Time(min) </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Time(min): ">
+      {{ element.Time }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Priority">
+    <mat-header-cell *matHeaderCellDef> Priority </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Priority: ">
+      {{ element.Priority }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="isAvailable">
+    <mat-header-cell *matHeaderCellDef> isAvailable </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="isAvailable: ">
+      <mat-slide-toggle
+        [(ngModel)]="element.isAvailable"
+        class="example-margin"
+        (change)="changed(element._id, element.StartPoint, element.EndPoint)"
+      >
+      </mat-slide-toggle>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Actions: ">
+      <button
+        class="btn btn-outline-primary action"
+        routerLink="edit/{{ element._id }}"
+        type="button"
+      >
+        <i class="material-icons">
+          create
+        </i>
+      </button>
+
+      <button
+        class="btn btn-outline-primary action"
+        (click)="onDelete(element._id)"
+        type="button"
+      >
+        <i class="material-icons">
+          delete_sweep
+        </i>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

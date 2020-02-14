@@ -1,0 +1,257 @@
+<div class="image">
+    <div class="container-fluid" >
+         
+        <div class="row">
+          <div class="col-md-3"></div>
+        <div class="col-md-6" >
+    
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <div class="col-md-12">
+            <h3 style="text-align: center">Create Transport</h3>
+          </div>
+    </ol>
+  </nav>
+
+  <div class="page-content">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col col-md-8">
+        <form
+          class="create-form"
+          [formGroup]="exampleForm"
+          novalidate
+          (ngSubmit)="onSubmit(exampleForm.value)"
+        >
+          <div class="row submit-button-container">
+            <div class="col-md-8">
+              <button
+                mat-raised-button
+                class="submit-button"
+                color="primary"
+                type="submit"
+                [disabled]="!exampleForm.valid && !cansave"
+                style="width: 50%; margin-bottom: 20px"
+              >
+                Create
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <mat-select placeholder="City" formControlName="City">
+                <mat-option *ngFor="let op of routeList" [value]="op.CityName">
+                  {{ op.CityName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.City">
+              <mat-error
+                *ngIf="
+                  exampleForm.get('City').hasError(validation.type) &&
+                  (exampleForm.get('City').dirty ||
+                    exampleForm.get('City').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                type="number"
+                placeholder="No Of Vehicles"
+                class="form-control"
+                formControlName="NoOfVehicles"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.NoOfVehicles"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('NoOfVehicles').hasError(validation.type) &&
+                  (exampleForm.get('NoOfVehicles').dirty ||
+                    exampleForm.get('NoOfVehicles').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Price Type"
+                class="form-control"
+                formControlName="PriceType"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.PriceType"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('PriceType').hasError(validation.type) &&
+                  (exampleForm.get('PriceType').dirty ||
+                    exampleForm.get('PriceType').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Vendor Name"
+                class="form-control"
+                formControlName="VendorName"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.VendorName"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('VendorName').hasError(validation.type) &&
+                  (exampleForm.get('VendorName').dirty ||
+                    exampleForm.get('VendorName').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Vendor PhoneNo"
+                class="form-control"
+                formControlName="VendorPhoneNo"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.VendorPhoneNo"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('VendorPhoneNo').hasError(validation.type) &&
+                  (exampleForm.get('VendorPhoneNo').dirty ||
+                    exampleForm.get('VendorPhoneNo').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+        </form>
+      </div></div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+        <div *ngIf="hotel.TransportType">
+          <div class="list-group users-list">
+            <div
+              *ngFor="let item of hotel.TransportType"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div class="row">
+                <div class="col col-md-8 text-col">
+                  <h5>Transport Name: {{ item.TransportName }}</h5>
+                  <h6 class="mb-1">Price: {{ item.Price }}</h6>
+                  <h6 class="mb-1">City: {{ item.Capacity }}</h6>
+                </div>
+
+                <div class="col col-md-2 actions-col">
+                  <button
+                    class="btn btn-outline-primary action"
+                    (click)="ontodoDelete(item)"
+                    type="button"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Transport Types</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="col-md-8">
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  (change)="Addcheck()"
+                  placeholder="Transport Name"
+                  [(ngModel)]="TransportName"
+                  name="TransportName"
+                  required
+                />
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  (change)="Addcheck()"
+                  type="number"
+                  placeholder="Capacity"
+                  [(ngModel)]="Capacity"
+                  name="Capacity"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  (change)="Addcheck()"
+                  type="number"
+                  placeholder="Price"
+                  [(ngModel)]="Price"
+                  name="Price"
+                  required
+                />
+              </mat-form-field>
+            </div>
+            <div class="row submit-button-container">
+              <div class="col-md-4">
+                <button
+                  mat-raised-button
+                  class="submit-button"
+                  color="primary"
+                  (click)="addroomtype()"
+                  [disabled]="!add1"
+                  style="margin-left: 100%;margin-bottom: 20px;margin-top: 10px"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+            <div class="row submit-button-container">
+              <div class="col-md-4">
+                <button
+                  mat-raised-button
+                  class="submit-button"
+                  color="primary"
+                  (click)="resetrooms()"
+                  [disabled]="!resetting"
+                  style="margin-left: 100%"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+        </div></div>
+</div>

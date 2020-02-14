@@ -1,0 +1,70 @@
+<div class="image">
+  <div class="create-page">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">View Hotels</li>
+      </ol>
+    </nav>
+
+    <div *ngIf="hotel">
+      <div *ngIf="hotel">
+        <div class="list-group users-list">
+          <div
+            *ngFor="let item of all"
+            class="list-group-item list-group-item-action flex-column align-items-start"
+          >
+            <div class="row">
+              <div class="col col-md-8 text-col">
+                <h4>Hotel Name: {{ item.iti.HotelName }}</h4>
+                <h6 class="mb-1">City: {{ item.iti.City }}</h6>
+                <h6 class="mb-1">No of Rooms: {{ item.iti.NoOfRooms }}</h6>
+                <h6 class="mb-1">Vendor Name: {{ item.iti.VendorName }}</h6>
+                <h6 class="mb-1">
+                  Vendor PhoneNo: {{ item.iti.VendorPhoneNo }}
+                </h6>
+                <h5>Hotel Services</h5>
+                <div
+                  *ngFor="let q of item.iti.HotelServices"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <h6 class="mb-1">{{ q }}</h6>
+                </div>
+              </div>
+              <mat-toolbar style="margin-bottom:10px;background:none">
+                <h3><span>Room Types:</span></h3>
+                <span class="fill-remaining-space"></span>
+              </mat-toolbar>
+
+              <div
+                *ngFor="let i of item.days"
+                class="list-group-item list-group-item-action flex-column align-items-start"
+              >
+                <h5>Room Type: {{ i.roomType }}</h5>
+                <h6>No of Rooms: {{ i.NoOfRooms }}</h6>
+                <h6>Price: {{ i.Price }}</h6>
+                <h6>Occupancy: {{ i.Occupancy }}</h6>
+                <h5>Room Services</h5>
+                <div
+                  *ngFor="let j of i.RoomServices"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <h6 class="mb-1">{{ j }}</h6>
+                </div>
+              </div>
+            </div>
+
+            <div class="col col-md-2 actions-col">
+              <button
+                class="btn btn-outline-primary action"
+                (click)="onDelete(item.iti.ID)"
+                type="button"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

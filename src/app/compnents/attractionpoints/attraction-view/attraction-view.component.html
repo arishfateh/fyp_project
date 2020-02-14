@@ -1,0 +1,101 @@
+<mat-table [dataSource]="attractionList" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="AttractionName">
+    <mat-header-cell *matHeaderCellDef> AttractionName </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="AttractionName: ">
+      {{ element.AttractionName }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="City">
+    <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Contact No: ">
+      {{ element.City }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Type">
+    <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Type: ">
+      {{ element.Type }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Price">
+    <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Price: ">
+      {{ element.Price }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Priority">
+    <mat-header-cell *matHeaderCellDef> Priority </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Priority: ">
+      {{ element.Priority }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Time">
+    <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Time: ">
+      {{ element.Time }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="timeSlots">
+    <mat-header-cell *matHeaderCellDef> Time Slots occupied </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="timeSlots: ">
+      {{ element.timeSlots }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Actions: ">
+      <button
+        class="btn btn-outline-primary action"
+        routerLink="edit/{{ element._id }}"
+        type="button"
+      >
+        <i class="material-icons">
+          create
+        </i>
+      </button>
+
+      <button
+        class="btn btn-outline-primary action"
+        (click)="onDelete(element._id)"
+        type="button"
+      >
+        <i class="material-icons">
+          delete_sweep
+        </i>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<hr />
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- Footer Links -->
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+
+  <div class="footer-copyright text-center py-3">
+    © 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/angular/"> RADTech.com</a>
+  </div>
+  <img
+    style="height: 50px; width: 50px;margin-left: 600px;"
+    src="assets/logo.png"
+    alt="df"
+  />
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

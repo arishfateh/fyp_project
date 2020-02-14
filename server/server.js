@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-
+const MongoClient = require('mongodb').MongoClient;
 ///////////
 
 const attractionpoint = require("./routes/api/attractionpoints");
@@ -14,7 +14,7 @@ const route = require("./routes/api/routes");
 //////
 
 
-const dealers = require("./routes/api/dealers");
+const hotels = require("./routes/api/hotels");
 
 const property = require("./routes/api/propertys");
 
@@ -31,13 +31,29 @@ const app = express();
 //     })
 // );
 // app.use(bodyParser.json());
+//const MongoClient = require('mongodb').MongoClient;
+
+/*
+const uri = "mongodb+srv://user1:1234@cluster0-7b0mc.mongodb.net/test?retryWrites=true&w=majority";
+
+//const uri = 'mongodb://localhost:27017/FypProject',
+
+
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+    const collection = client.db("FypProject").collection("devices");
+    // perform actions on the collection object
+    //  client.close();
+});
+*/
 
 app.use(bodyParser.json({ extended: false, limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb' }));
 //DB Config
 const db = require("./config/keys").mongoURI;
 
-//Connect to Mongo Db
+/*
+//Connect to Mongo Db local
 mongoose
     .connect(db, {
         useNewUrlParser: true,
@@ -49,6 +65,21 @@ mongoose
     .catch(err => {
         console.log(err);
     });
+*/
+
+mongoose
+    .connect("mongodb+srv://user1:1234@cluster0-7b0mc.mongodb.net/test?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useFindAndModify: false
+    })
+    .then(() => {
+        console.log("MongoDb Connected");
+    })
+    .catch(err => {
+        console.log(err);
+    });
+
+
 
 //Passport middleware
 app.use(passport.initialize());
@@ -61,15 +92,19 @@ app.use(cors());
 /////////////
 app.use("/attractionpoint", attractionpoint);
 app.use("/city", city);
+
+
 app.use("/route", route);
 ///////
 // //use routes
-app.use("/dealers", dealers);
+
 app.use("/property", property);
 
 app.use("/itinerary", itinerarys);
 
 app.use("/users", users);
+
+app.use("/hotel", hotels)
 
 const port = process.env.PORT || 3000;
 

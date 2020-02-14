@@ -1,0 +1,41 @@
+<div class="image">
+    <div class="container-fluid">
+      <div class="row">
+      
+        
+          <div class="col-md-12">
+            <h3 style="text-align: center; color: white">Break Points</h3>
+          </div>
+        
+       <div class="col-md-2"></div>
+       <div class="col-md-8">
+    <div *ngIf="breakpointlist">
+        <div class="col-md-12">
+            <h5 style="color: white">NO of Total Break Points : {{ len }}</h5>
+          </div>
+    <div
+      *ngFor="let item of breakpointlist"
+      class="list-group-item list-group-item-action flex-column align-items-start"
+    >
+      <div class="row" style="text-align: inherit">
+        <div class="col col-md-8 text-col">
+          <h6>StartPoint: {{ item.StartPoint }}</h6>
+          <h6>EndPoint: {{ item.EndPoint }}</h6>
+
+          <h6>Priority: {{ item.Priority }}</h6>
+          <h6>Time: {{ item.Time }}</h6>
+          <h6>StopType: {{ item.StopType }}</h6>
+        </div>
+        <div class="col col-md-2 actions-col">
+          <button
+            class="btn btn-outline-primary action"
+            (click)="onDelete(item.ID)"
+            type="button"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> </div></div></div>

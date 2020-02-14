@@ -1,0 +1,233 @@
+<div class="image">
+<div class="container-fluid" >
+  
+<div class="row">
+  <div class="col-md-3"></div>
+<div class="col-md-6" >
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <div class="col-md-12">
+      <h3 class="yo">Add New Route</h3>
+    </div>
+    </ol>
+  </nav>
+     
+        <mat-card>
+            <mat-card-content>
+     
+     
+      <div class="col-md-8">
+        
+
+          
+      <div class="page-content" *ngIf="routeList">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <form
+          class="create-form"
+          [formGroup]="exampleForm"
+          novalidate
+          (ngSubmit)="onSubmit(exampleForm.value)"
+        >
+          <div class="form-group">
+            <h3 style="font-variant-caps: all-petite-caps;color: white"></h3>
+            <mat-form-field >
+              <mat-select
+                placeholder="Start Point"
+                formControlName="StartPoint"
+                [ngClass]="className" 
+              >
+                <mat-option *ngFor="let op of routeList" [value]="op.CityName">
+                  {{ op.CityName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.StartPoint"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('StartPoint').hasError(validation.type) &&
+                  (exampleForm.get('StartPoint').dirty ||
+                    exampleForm.get('StartPoint').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+          <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+            <mat-form-field class="input-style" style="color: white">
+              <mat-select placeholder="End Point" formControlName="EndPoint">
+                <mat-option *ngFor="let op of routeList" [value]="op.CityName">
+                  {{ op.CityName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.EndPoint"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('EndPoint').hasError(validation.type) &&
+                  (exampleForm.get('EndPoint').dirty ||
+                    exampleForm.get('EndPoint').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps;color: white"></h3>
+            <mat-form-field class="input-style">
+              
+              <input
+                matInput
+                type="number"
+                placeholder="Distance"
+                class="form-control"
+                formControlName="Distance"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.Distance"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('Distance').hasError(validation.type) &&
+                  (exampleForm.get('Distance').dirty ||
+                    exampleForm.get('Distance').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps;color: white"></h3>
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                type="number"
+                placeholder="Time (min)"
+                class="form-control"
+                formControlName="Time"
+              />
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.Time">
+              <mat-error
+                *ngIf="
+                  exampleForm.get('Time').hasError(validation.type) &&
+                  (exampleForm.get('Time').dirty ||
+                    exampleForm.get('Time').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps;color: white"></h3>
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="roadCondition"
+                class="form-control"
+                formControlName="roadCondition"
+              />
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.roadCondition">
+              <mat-error
+                *ngIf="
+                  exampleForm.get('roadCondition').hasError(validation.type) &&
+                  (exampleForm.get('roadCondition').dirty ||
+                    exampleForm.get('roadCondition').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps;color: white"></h3>
+            <mat-form-field class="input-style">
+              <input
+                
+                matInput
+                type="number"
+                placeholder="Priority"
+                class="form-control"
+                formControlName="Priority"
+                
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.Priority"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('Priority').hasError(validation.type) &&
+                  (exampleForm.get('Priority').dirty ||
+                    exampleForm.get('Priority').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps;color: white"></h3>
+            <mat-form-field class="input-style">
+              <mat-select
+                placeholder="isAvailable"
+                formControlName="isAvailable"
+              >
+                <mat-option *ngFor="let op of isavailable" [value]="op">
+                  {{ op }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.isAvailable"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('isAvailable').hasError(validation.type) &&
+                  (exampleForm.get('isAvailable').dirty ||
+                    exampleForm.get('isAvailable').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="row submit-button-container">
+            <div class="col-md-12">
+              <button
+              style="width: 100%;"
+                mat-raised-button
+                class="submit-button"
+                color="primary"
+                type="submit"
+                [disabled]="!exampleForm.valid"
+              >
+                ADD
+              </button>
+            </div>
+          </div>
+        </form>
+      
+      </div>
+    </div>
+  </div>
+</div>
+</mat-card-content>
+</mat-card>
+
+</div>
+</div>
+</div>
+</div>
+

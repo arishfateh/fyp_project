@@ -1,0 +1,324 @@
+<div *ngIf="disp">
+  <div class="edit-page">
+      <div class="image" >
+          <div class="container-fluid" >
+               
+              <div class="row">
+                <div class="col-md-3"></div>
+              <div class="col-md-6" >
+          
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          Edit Attraction Point
+        </li>
+      </ol>
+    </nav>
+    <div class="page-content" >
+        <mat-card>
+            <mat-card-content>
+        <div class="col col-md-8">
+            <div class="row">
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+          <form
+            class="edit-form"
+            [formGroup]="exampleForm"
+            novalidate
+            (ngSubmit)="onSubmit(exampleForm.value)"
+          >
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  placeholder="Attraction Name"
+                  class="form-control"
+                  formControlName="AttractionName"
+                />
+              </mat-form-field>
+              <ng-container
+                *ngFor="let validation of validation_messages.AttractionName"
+              >
+                <mat-error
+                  *ngIf="
+                    exampleForm
+                      .get('AttractionName')
+                      .hasError(validation.type) &&
+                    (exampleForm.get('AttractionName').dirty ||
+                      exampleForm.get('AttractionName').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  placeholder="City"
+                  class="form-control"
+                  formControlName="City"
+                />
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.City">
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('City').hasError(validation.type) &&
+                    (exampleForm.get('City').dirty ||
+                      exampleForm.get('City').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Price"
+                  class="form-control"
+                  formControlName="Price"
+                />
+              </mat-form-field>
+              <ng-container
+                *ngFor="let validation of validation_messages.Price"
+              >
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('Price').hasError(validation.type) &&
+                    (exampleForm.get('Price').dirty ||
+                      exampleForm.get('Price').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  type="number"
+                  placeholder="travelDistance"
+                  class="form-control"
+                  formControlName="travelDistance"
+                />
+              </mat-form-field>
+              <ng-container
+                *ngFor="let validation of validation_messages.travelDistance"
+              >
+                <mat-error
+                  *ngIf="
+                    exampleForm
+                      .get('travelDistance')
+                      .hasError(validation.type) &&
+                    (exampleForm.get('travelDistance').dirty ||
+                      exampleForm.get('travelDistance').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  type="number"
+                  placeholder="travelTime"
+                  class="form-control"
+                  formControlName="travelTime"
+                />
+              </mat-form-field>
+              <ng-container
+                *ngFor="let validation of validation_messages.travelTime"
+              >
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('travelTime').hasError(validation.type) &&
+                    (exampleForm.get('travelTime').dirty ||
+                      exampleForm.get('travelTime').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Activity Time (min)"
+                  class="form-control"
+                  formControlName="Time"
+                />
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.Time">
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('Time').hasError(validation.type) &&
+                    (exampleForm.get('Time').dirty ||
+                      exampleForm.get('Time').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Priority"
+                  class="form-control"
+                  formControlName="Priority"
+                />
+              </mat-form-field>
+              <ng-container
+                *ngFor="let validation of validation_messages.Priority"
+              >
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('Priority').hasError(validation.type) &&
+                    (exampleForm.get('Priority').dirty ||
+                      exampleForm.get('Priority').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Time Slots occupied"
+                  class="form-control"
+                  formControlName="timeSlots"
+                />
+              </mat-form-field>
+              <ng-container
+                *ngFor="let validation of validation_messages.timeSlots"
+              >
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('timeSlots').hasError(validation.type) &&
+                    (exampleForm.get('timeSlots').dirty ||
+                      exampleForm.get('timeSlots').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <mat-select placeholder="Type" formControlName="Type">
+                  <mat-option *ngFor="let op of type" [value]="op">
+                    {{ op }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.Type">
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('Type').hasError(validation.type) &&
+                    (exampleForm.get('Type').dirty ||
+                      exampleForm.get('Type').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+
+            <div class="form-group">
+              <h3 style="font-variant-caps: all-petite-caps; color: white"></h3>
+              <mat-form-field class="input-style">
+                <textarea
+                  matInput
+                  placeholder="Description"
+                  class="form-control"
+                  formControlName="Description"
+                ></textarea>
+              </mat-form-field>
+              <ng-container
+                *ngFor="let validation of validation_messages.Description"
+              >
+                <mat-error
+                  *ngIf="
+                    exampleForm.get('Description').hasError(validation.type) &&
+                    (exampleForm.get('Description').dirty ||
+                      exampleForm.get('Description').touched)
+                  "
+                  >{{ validation.message }}</mat-error
+                >
+              </ng-container>
+            </div>
+
+            <div class="row submit-button-container">
+              <div class="col-md-6">
+                <button
+                  mat-raised-button
+                  class="submit-button"
+                  color="primary"
+                  type="submit"
+                  [disabled]="!exampleForm.valid"
+                >
+                  Save
+                </button>
+              </div>
+
+              <div class="col-md-4">
+                  <button 
+                  mat-raised-button
+                  style="color: red;" 
+                  routerLink="home/attraction/view">
+                    Back
+                  </button>
+                </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+<hr />
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- Footer Links -->
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+
+  <div class="footer-copyright text-center py-3">
+    © 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/angular/"> RADTech.com</a>
+  </div>
+  <img
+    style="height: 50px; width: 50px;margin-left: 600px;"
+    src="assets/logo.png"
+    alt="df"
+  />
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

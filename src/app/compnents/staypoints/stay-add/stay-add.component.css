@@ -1,0 +1,46 @@
+.create-page {
+  padding: 20px 60px;
+}
+.create-page .page-content {
+  background-color: #fff;
+}
+.create-page .page-content .img-avatar {
+  border-radius: 50%;
+  width: 150px;
+  display: block;
+  margin: 20px auto;
+}
+.create-page .page-content .change-img-button {
+  display: block;
+  margin: 0px auto;
+}
+.create-page .page-content .create-form {
+  padding: 20px;
+}
+.create-page .page-content .create-form .submit-button-container {
+  justify-content: flex-end;
+}
+.create-page
+  .page-content
+  .create-form
+  .submit-button-container
+  .submit-button {
+  width: 100%;
+}
+.create-page .page-content .create-form .input-style {
+  width: 100%;
+}
+.create-page .page-content .create-form .mat-error {
+  font-size: 12px;
+}
+.image{
+  height:720px; background-size:cover; width:100%;
+  background-image:url('./images/architecture-bay-blue-sky-1920-x-1080-1024x675.jpg');
+  background-position:50% 50%;
+}
+.body{
+  background-image:url('./images/8845352059b3f6df722fb0d6a5320f26.jpg');
+}
+.mat-card{
+  background-color: rgba(0, 0, 0, 0.5);
+}

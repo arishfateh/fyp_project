@@ -1,0 +1,367 @@
+<div *ngIf="disp">
+<div class="image">
+    <div class="container-fluid" >
+         
+        <div class="row">
+          <div class="col-md-3"></div>
+        <div class="col-md-6" >
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <div class="col-md-12">
+            <h3 style="text-align: center">Add Hotel</h3>
+          </div>
+    </ol>
+  </nav>
+
+  <div class="page-content">
+    <div class="row">
+      
+      <div class="col col-md-12">
+        <form
+          class="create-form"
+          [formGroup]="exampleForm"
+          novalidate
+          (ngSubmit)="onSubmit(exampleForm.value)"
+        >
+          <div class="row submit-button-container">
+            <div class="col-md-12">
+              <button
+                mat-raised-button
+                class="submit-button"
+                color="primary"
+                type="submit"
+                [disabled]="!exampleForm.valid"
+                style="width: 50%; margin-bottom: 20px"
+              >
+                Create
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <mat-select placeholder="City" formControlName="City">
+                <mat-option *ngFor="let op of routeList" [value]="op.CityName">
+                  {{ op.CityName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.City">
+              <mat-error
+                *ngIf="
+                  exampleForm.get('City').hasError(validation.type) &&
+                  (exampleForm.get('City').dirty ||
+                    exampleForm.get('City').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Hotel Name"
+                class="form-control"
+                formControlName="HotelName"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.HotelName"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('HotelName').hasError(validation.type) &&
+                  (exampleForm.get('HotelName').dirty ||
+                    exampleForm.get('HotelName').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                type="number"
+                placeholder="No Of Rooms"
+                class="form-control"
+                formControlName="NoOfRooms"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.NoOfRooms"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('NoOfRooms').hasError(validation.type) &&
+                  (exampleForm.get('NoOfRooms').dirty ||
+                    exampleForm.get('NoOfRooms').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Vendor Name"
+                class="form-control"
+                formControlName="VendorName"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.VendorName"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('VendorName').hasError(validation.type) &&
+                  (exampleForm.get('VendorName').dirty ||
+                    exampleForm.get('VendorName').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="input-style">
+              <input
+                matInput
+                placeholder="Vendor PhoneNo"
+                class="form-control"
+                formControlName="VendorPhoneNo"
+              />
+            </mat-form-field>
+            <ng-container
+              *ngFor="let validation of validation_messages.VendorPhoneNo"
+            >
+              <mat-error
+                *ngIf="
+                  exampleForm.get('VendorPhoneNo').hasError(validation.type) &&
+                  (exampleForm.get('VendorPhoneNo').dirty ||
+                    exampleForm.get('VendorPhoneNo').touched)
+                "
+                >{{ validation.message }}</mat-error
+              >
+            </ng-container>
+          </div>
+
+          <div
+            fxLayout="row wrap"
+            fxLayoutAlign="start center"
+            fxLayoutGap="10px"
+          >
+            <mat-form-field class="example-chip-list">
+              <mat-chip-list #chipList aria-label="Fruit selection">
+                <p>Hotel Services..</p>
+                <mat-chip
+                  *ngFor="let fruit of SelectedTags"
+                  [selectable]="selectable"
+                  [removable]="removable"
+                  (removed)="remove(fruit)"
+                >
+                  {{ fruit }}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input
+                  placeholder="Hotel Services..."
+                  #fruitInput
+                  [formControl]="fruitCtrl"
+                  [matAutocomplete]="auto"
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add($event)"
+                />
+              </mat-chip-list>
+              <mat-autocomplete
+                #auto="matAutocomplete"
+                (optionSelected)="selected($event)"
+              >
+                <mat-option
+                  *ngFor="let fruit of alltags | async"
+                  [value]="fruit"
+                >
+                  {{ fruit }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </form>
+      </div></div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-5">
+        <div *ngIf="rooms1">
+          <div class="list-group users-list">
+            <div
+              *ngFor="let item of rooms1"
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div class="row">
+                <div class="col-md-5"></div>
+                <div class="col col-md-10 text-col">
+                  <h5>Day: {{ item.roomType }}</h5>
+                  <h6 class="mb-1">StartCity: {{ item.Occupancy }}</h6>
+                  <h6 class="mb-1">EndCity: {{ item.Price }}</h6>
+                  <h6 class="mb-1">StayCity: {{ item.NoOfRooms }}</h6>
+                </div>
+                <h5>Room Services</h5>
+                <div
+                  *ngFor="let item of item.RoomServices"
+                  class="list-group-item list-group-item-action flex-column align-items-start"
+                >
+                  <h6>{{ item }}</h6>
+                </div>
+
+                <div class="col col-md-2 actions-col">
+                  <button
+                    class="btn btn-outline-primary action"
+                    (click)="onhotelDelete(item)"
+                    type="button"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>Room Types</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="col-md-8">
+              <mat-form-field class="example-full-width">
+                <input
+                  (change)="Addcheck()"
+                  matInput
+                  placeholder="Room Type"
+                  [(ngModel)]="roomType"
+                  name="roomType"
+                  required
+                />
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  (change)="Addcheck()"
+                  type="number"
+                  placeholder="No Of Rooms"
+                  [(ngModel)]="NoOfRooms"
+                  name="NoOfRooms"
+                  required
+                />
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  (change)="Addcheck()"
+                  type="number"
+                  placeholder="Price"
+                  [(ngModel)]="Price"
+                  name="Price"
+                  required
+                />
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  (change)="Addcheck()"
+                  type="number"
+                  placeholder="Occupancy"
+                  [(ngModel)]="Occupancy"
+                  name="Occupancy"
+                  required
+                />
+              </mat-form-field>
+              <div
+                fxLayout="row wrap"
+                fxLayoutAlign="start center"
+                fxLayoutGap="10px"
+              >
+                <mat-form-field class="example-chip-list">
+                  <mat-chip-list #chipList aria-label="Fruit selection2">
+                    <mat-chip
+                      *ngFor="let fruit of SelectedTags2"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove2(fruit)"
+                    >
+                      {{ fruit }}
+                      <mat-icon matChipRemove *ngIf="removable"
+                        >cancel</mat-icon
+                      >
+                    </mat-chip>
+                    <input
+                      placeholder="Room Services..."
+                      #fruitInput2
+                      [formControl]="fruitCtrl2"
+                      [matAutocomplete]="auto2"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add2($event)"
+                    />
+                  </mat-chip-list>
+                  <mat-autocomplete
+                    #auto2="matAutocomplete"
+                    (optionSelected)="selected2($event)"
+                  >
+                    <mat-option
+                      *ngFor="let fruit of alltags2 | async"
+                      [value]="fruit"
+                    >
+                      {{ fruit }}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row submit-button-container">
+              <div class="col-md-4">
+                <button
+                  mat-raised-button
+                  class="submit-button"
+                  color="primary"
+                  (click)="addroomtype()"
+                  [disabled]="!add1"
+                  style="margin-left: 100%;margin-bottom: 20px;margin-top: 10px"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
+            <div class="row submit-button-container">
+              <div class="col-md-4">
+                <button
+                  mat-raised-button
+                  class="submit-button"
+                  color="primary"
+                  (click)="resetrooms()"
+                  [disabled]="!resetting"
+                  style="margin-left: 100%"
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-3">
+  
+</div>
+        </div></div></div>
+</div>

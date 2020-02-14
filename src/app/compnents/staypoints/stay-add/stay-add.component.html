@@ -1,0 +1,213 @@
+<div class="image">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <div class="col-md-12">
+              <h3 style="text-align: center">Add Stay Points</h3>
+            </div>
+          </ol>
+        </nav>
+        <mat-card>
+          <mat-card-content>
+            <div class="page-content" *ngIf="routeList">
+              <div class="col col-md-8">
+                <div class="row">
+                  <div class="col-md-6"></div>
+                  <div class="col-md-6">
+                    <form
+                      class="create-form"
+                      [formGroup]="exampleForm"
+                      novalidate
+                      (ngSubmit)="onSubmit(exampleForm.value)"
+                    >
+                      <div class="form-group">
+                        <h3
+                          style="font-variant-caps: all-petite-caps;color: white"
+                        >
+                          DepartureCity
+                        </h3>
+                        <mat-form-field class="input-style">
+                          <mat-select
+                            placeholder="Departure City"
+                            formControlName="DepartureCity"
+                          >
+                            <mat-option
+                              *ngFor="let op of routeList"
+                              [value]="op.CityName"
+                            >
+                              {{ op.CityName }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <ng-container
+                          *ngFor="
+                            let validation of validation_messages.DepartureCity
+                          "
+                        >
+                          <mat-error
+                            *ngIf="
+                              exampleForm
+                                .get('DepartureCity')
+                                .hasError(validation.type) &&
+                              (exampleForm.get('DepartureCity').dirty ||
+                                exampleForm.get('DepartureCity').touched)
+                            "
+                            >{{ validation.message }}</mat-error
+                          >
+                        </ng-container>
+                      </div>
+
+                      <div class="form-group">
+                        <h3
+                          style="font-variant-caps: all-petite-caps;color: white"
+                        >
+                          DestinationCity
+                        </h3>
+                        <mat-form-field class="input-style">
+                          <mat-select
+                            placeholder="Destination City"
+                            formControlName="DestinationCity"
+                          >
+                            <mat-option
+                              *ngFor="let op of routeList"
+                              [value]="op.CityName"
+                            >
+                              {{ op.CityName }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <ng-container
+                          *ngFor="
+                            let validation of validation_messages.DestinationCity
+                          "
+                        >
+                          <mat-error
+                            *ngIf="
+                              exampleForm
+                                .get('DestinationCity')
+                                .hasError(validation.type) &&
+                              (exampleForm.get('DestinationCity').dirty ||
+                                exampleForm.get('DestinationCity').touched)
+                            "
+                            >{{ validation.message }}</mat-error
+                          >
+                        </ng-container>
+                      </div>
+
+                      <div class="form-group">
+                        <h3
+                          style="font-variant-caps: all-petite-caps;color: white"
+                        >
+                          Stop Over City
+                        </h3>
+                        <mat-form-field class="input-style">
+                          <mat-select
+                            placeholder="StopOver City"
+                            formControlName="StopOverCity"
+                          >
+                            <mat-option
+                              *ngFor="let op of routeList"
+                              [value]="op.CityName"
+                            >
+                              {{ op.CityName }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <ng-container
+                          *ngFor="
+                            let validation of validation_messages.StopOverCity
+                          "
+                        >
+                          <mat-error
+                            *ngIf="
+                              exampleForm
+                                .get('StopOverCity')
+                                .hasError(validation.type) &&
+                              (exampleForm.get('StopOverCity').dirty ||
+                                exampleForm.get('StopOverCity').touched)
+                            "
+                            >{{ validation.message }}</mat-error
+                          >
+                        </ng-container>
+                      </div>
+
+                      <div class="form-group">
+                        <h3
+                          style="font-variant-caps: all-petite-caps;color: white"
+                        >
+                          Priority
+                        </h3>
+                        <mat-form-field class="input-style">
+                          <input
+                            matInput
+                            type="number"
+                            placeholder="Priority"
+                            class="form-control"
+                            formControlName="Priority"
+                          />
+                        </mat-form-field>
+                        <ng-container
+                          *ngFor="
+                            let validation of validation_messages.Priority
+                          "
+                        >
+                          <mat-error
+                            *ngIf="
+                              exampleForm
+                                .get('Priority')
+                                .hasError(validation.type) &&
+                              (exampleForm.get('Priority').dirty ||
+                                exampleForm.get('Priority').touched)
+                            "
+                            >{{ validation.message }}</mat-error
+                          >
+                        </ng-container>
+                      </div>
+                      <div class="row submit-button-container">
+                        <div class="col-md-4">
+                          <button
+                            mat-raised-button
+                            class="submit-button"
+                            color="primary"
+                            type="submit"
+                            [disabled]="!exampleForm.valid"
+                          >
+                            Create
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<hr />
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- Footer Links -->
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+
+  <div class="footer-copyright text-center py-3">
+    © 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/angular/"> RADTech.com</a>
+  </div>
+  <img
+    style="height: 50px; width: 50px;margin-left: 600px;"
+    src="assets/logo.png"
+    alt="df"
+  />
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

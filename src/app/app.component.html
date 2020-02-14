@@ -1,0 +1,43 @@
+<button mat-button [matMenuTriggerFor]="baboveMenu">Cities</button>
+<mat-menu #baboveMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="city">Add</button>
+  <button mat-menu-item routerLink="city/view">View</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="aboveMenu">Attraction Points</button>
+<mat-menu #aboveMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="attraction">Add</button>
+  <button mat-menu-item routerLink="attraction/view">View</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="aaboveMenu">Routes</button>
+<mat-menu #aaboveMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="route">Add</button>
+  <button mat-menu-item routerLink="route/view">View</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="belowMenu">Stay Points</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="stay">Add</button>
+  <button mat-menu-item routerLink="stay/view">View</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="afterMenu">Transport</button>
+<mat-menu #afterMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="transport">Add</button>
+  <button mat-menu-item routerLink="transport/view">View</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="beforeMenu">Hotels</button>
+<mat-menu #beforeMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="hotel">Add</button>
+  <button mat-menu-item routerLink="hotel/view">View</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="aaafterMenu">Itinerary</button>
+<mat-menu #aaafterMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="itinerary">Add</button>
+  <button mat-menu-item routerLink="itinerary/view">View</button>
+</mat-menu>
+
+<router-outlet></router-outlet>

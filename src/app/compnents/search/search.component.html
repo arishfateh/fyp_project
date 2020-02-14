@@ -1,0 +1,675 @@
+<div *ngIf="disp">
+<div *ngIf="display" style="background-color: white;">
+  <link
+    href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    rel="stylesheet"
+    id="bootstrap-css"
+  />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  <!------ Include the above in your HEAD tag ---------->
+  <div>
+    <section style="text-align: center;object-position: 5px;">
+      <div class="container-fluid">
+        <video
+          preload="auto"
+          autoplay=""
+          loop=""
+          style="width: 1300px; height: 100%; "
+        >
+          <source src="assets/video.mp4" type="video/mp4" />
+        </video>
+
+        <div class="overlay">
+          <form     
+          class="create-form"
+          [formGroup]="exampleForm"
+          novalidate
+          (ngSubmit)="onSubmit(exampleForm.value)">
+            
+          <div class="row">
+              <div class="col-lg-12">
+                <h1 style="color: white">
+                  Book personalised vacations
+                </h1>
+
+                <h1 style="color: white;">completely online</h1>
+
+                <div class="row" style="margin-top: 30px;">
+                  <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                    <div class="form-group ">
+                      <mat-form-field class="search-slt">
+                        <mat-select
+                        
+                          placeholder="Travelling From?"
+                          formControlName="Source"
+                          [ngClass]="className" 
+                        >
+                          <mat-option *ngFor="let op of cityList" [value]="op.CityName">
+                            {{ op.CityName }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                     
+                    </div>
+                    </div>
+                  <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                   
+                    <div class="form-group">
+                      
+                    <mat-form-field 
+                    class="search-slt"
+                     >
+                      <mat-select  placeholder="Travelling To?" formControlName="Destination">
+                        <mat-option *ngFor="let op of cityList" [value]="op.CityName">
+                          {{ op.CityName }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 col-sm-12 p-0">
+                    <button
+                      type="button"
+                      class="btn btn-danger wrn-btn"
+                      (click)="search()"
+                      [disabled]="!exampleForm.valid"
+                    >
+                      Search
+                    </button>
+                   
+
+                    
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <img src="assets/long.PNG" alt="long" />
+</div>
+
+<div *ngIf="display1">
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://pyt-images.imgix.net/images/web_app/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://pyt-images.imgix.net/images/web_app/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://pyt-images.imgix.net/images/web_app/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://pyt-images.imgix.net/images/web_app/favicons/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="https://pyt-images.imgix.net/images/web_app/favicons/ms-icon-144x144.png">
+    <link rel="preconnect" href="//pyt-images.imgix.net" crossorigin="">
+    <link rel="preconnect" href="//d3lf10b5gahyby.cloudfront.net" crossorigin="">
+    <link rel="preconnect" href="//fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="//vars.hotjar.com" crossorigin="">
+    <link rel="preconnect" href="//script.hotjar.com" crossorigin="">
+    <link rel="preconnect" href="//in.hotjar.com" crossorigin="">
+    <link rel="preconnect" href="//www.googletagmanager.com" crossorigin="">
+    <link rel="preconnect" href="//googleads.g.doubleclick.net" crossorigin="">
+    <link rel="preconnect" href="//connect.facebook.net" crossorigin="">
+    <link rel="preconnect" href="//bat.bing.com" crossorigin="">
+    <link rel="preconnect" href="//www.googleadservices.com" crossorigin="">
+    <link rel="preconnect" href="//static.hotjar.com" crossorigin="">
+    <link rel="preconnect" href="//static.ads-twitter.com" crossorigin="">
+    <link rel="preconnect" href="//www.facebook.com" crossorigin="">
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin="">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/fonts/source-sans/400.ttf" as="font" crossorigin="">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/fonts/source-sans/600.ttf" as="font" crossorigin="">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/fonts/source-sans/700.ttf" as="font" crossorigin="">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/fonts/source-serif/700.ttf" as="font" crossorigin="">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/fonts/pyt/20191023/pyticon.ttf" as="font" crossorigin="">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.c14ef8ee.css" as="style">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.e952139a.chunk.css" as="style">
+    <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/home-desktop.4e8bf920.chunk.css" as="style">
+    <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.c14ef8ee.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.c14ef8ee.css">
+    <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.e952139a.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.e952139a.chunk.css">
+    <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/home-desktop.4e8bf920.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/home-desktop.4e8bf920.chunk.css">
+    <style data-styled="" data-styled-version="4.3.2"></style>
+    <script src="https://connect.facebook.net/signals/config/941224569279376?v=2.9.14&amp;r=stable" async=""></script>
+    <script defer="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+    <script type="text/javascript" async="" src="//bat.bing.com/bat.js"></script>
+    <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/gtm/js?id=GTM-TSJ9VC7&amp;cid=1410505208.1570428445"></script>
+    <script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~agents~booking-screens~desktop-speedboat-landing-cred-gcm~desktop-speedboat-landing-gcm~duba~64a227d9.db6c5d0c.chunk.js"></script>
+    <script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~agents~booking-screens~desktop-speedboat-landing-cred-gcm~desktop-speedboat-landing-gcm~duba~8ec031d1.bce9ac34.chunk.js"></script>
+    <script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~home-desktop~home-mobile.430a4234.chunk.js"></script>
+    <script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~home-desktop.e1fe3853.chunk.js"></script>
+    <script defer="" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/scripts/custom_scripts.js"></script>
+    <script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/787746386/?random=1574783538933&amp;cv=9&amp;fst=1574783538933&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_his=3&amp;u_tz=300&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=6&amp;gtm=2wgav9&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fpickyourtrail.com%2F&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;tiba=Customized%20Holiday%20Packages%2C%20Honeymoon%20%26%20Vacation%20Packages%20-%20Pickyourtrail.com&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+    <script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.5/lottie_svg.min.js"></script>
+    <script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~booking-screens~cred-itinerary~dubai-itinerary~home-mobile~inclusions-modals-v1~inclusions-v~aed51ac1.a0080e54.chunk.js"></script>
+    <script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~pdg.f05c1b6f.chunk.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/pdg.f59e8f38.chunk.css">
+    <script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/pdg.676f0b9c.chunk.js"></script>
+</head>
+
+<body class="crisp-hidden-xs">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX5SGGD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="offcanvas-bg sc-bdVaJa eDPzbJ"></div><aside class="offcanvas-menu sc-bwzfXH dmfmYi">
+    <div class="clearfix hdr"><p>Hello Guest,</p><span class="pull-right"><i id="menuClose" class="pyt-close-16"></i></span></div>
+
+<div class="clearfix ftr"><span class="pull-left"></span></div>
+</aside>
+<div class="main-container"><header class="navbar-outer sc-htpNat dTjmbA"><nav class="navbar navbar-default sc-bxivhb hUEKwm"><div class="container"><div class="row">
+    
+    
+    <div class="col-xs-6 col-sm-9 col-md-8 text-right">
+        <ul class="list-unstyled right-links mb-0" id="hide_for_maldives">
+            
+    </ul><ul class="list-unstyled right-links mb-0"><li id="menuBtn" class="hamburger-menu cursor-pointer n-tracker-mbl-hamburgermenu"><i></i></li></ul></div></div></div></nav></header>
+
+
+<div class="clearfix content-wrap"><div class="search-container show-search">
+    <div class="search-content"><section class="clearfix search-field">
+        <div class="clearfix pos-r"><p class="mb-0"><i class="pyt-navigation-16"></i><b>
+            <span class="hidden-xs">PLAN A VACATION TO</span> 
+           </b></p>
+            <a target="_self" href="/"><i class="pyt-close-16 close-search visible-xs"></i></a>
+            </div><section class="clearfix search-input-container">
+                <div class="clearfix pos-r input-holder"><h4 class="input-text-style">
+                    <span class="visible-sm visible-md visible-lg">{{destination}}</span>
+                    <span class="visible-xs">Time of travel</span></h4>
+                    <i class="pyt-close-16 close-search hidden-xs"></i>
+                    <a target="_self" href="home/search"><i class="pyt-close-16 close-search hidden-xs"></i></a>
+                    <div class="arrows visible-xs"><a class="pull-left" href="#"><i class="pyt-arrow-left-16"></i></a>
+                    <a class="pull-right disabled" href="#"><i class="pyt-arrow-right-16"></i></a></div></div>
+                    <ul class="clearfix list-unstyled mb-0">
+                        <li class="active"></li><li class="active"></li><li></li><li></li><li></li></ul></section></section>
+                        <section class="clearfix pdg-weather next-slide search-options-wrapper slide-left-in showed">
+                            <div class="clearfix text-center pdg-title hidden-xs"><h4>When do you want to explore?</h4></div>
+                           
+                            <div class="clearfix row-eq-hgt n-tracker-totalplantotravel">
+                                <div class="n-tracker-plantotravel-december pdg-card">
+                                    <input type="radio" name="pdgMonth" id="DECEMBER" value="DECEMBER" (click)="month('DECEMBER')">
+                                    <div class="pdg-card-content">
+                                      <label for="DECEMBER"><h6>Dec</h6>
+                                        <span class="season">SECOND BEST
+                            
+                                        </span>
+                                        <p class="dim-medium"><i class="wi wi-day-sunny"></i> 
+                                            <span>25°/30°</span>
+                                        </p><i class="tick-icon"></i>
+                                      </label>
+                                    </div>
+                                </div>
+                                   
+                                    <div class="n-tracker-plantotravel-january pdg-card">
+                                        <input type="radio" name="pdgMonth" id="JANUARY" value="JANUARY" (click)="month('JANUARY')">
+                                        <div class="pdg-card-content"><label for="JANUARY"><h6>Jan</h6>
+                                        <span class="season">OFF SEASON</span><p class="dim-medium"><i class="wi wi-day-sunny"></i> 
+                                        <span>25°/30°</span></p><i class="tick-icon"></i></label></div></div>
+                                    
+                                    <div class="n-tracker-plantotravel-february pdg-card">
+                                            <input type="radio" name="pdgMonth" id="FEBRUARY" value="FEBRUARY" (click)="month('FEBRUARY')">
+                                            <div class="pdg-card-content"><label for="FEBRUARY"><h6>Feb</h6>
+                                            <span class="season">OFF SEASON</span><p class="dim-medium"><i class="wi wi-day-sunny"></i>
+                                             <span>25°/30°</span></p><i class="tick-icon"></i></label></div></div>
+                                             
+                                    <div class="n-tracker-plantotravel-march pdg-card">
+                                                 <input type="radio" name="pdgMonth" id="MARCH" value="MARCH" (click)="month('MARCH')">
+                                                 <div class="pdg-card-content"><label for="MARCH"><h6>Mar</h6>
+                                                 <span class="season our-pick">OUR PICK</span><p class="dim-medium">
+                                                     <i class="wi wi-day-sunny"></i> 
+                                                     <span>25°/30°</span></p><i class="tick-icon"></i></label></div></div>
+                                                     
+                                    <div class="n-tracker-plantotravel-april pdg-card">
+                                                         <input type="radio" name="pdgMonth" id="APRIL" value="APRIL" (click)="month('APRIL')">
+                                                         <div class="pdg-card-content"><label for="APRIL"><h6>Apr</h6>
+                                                         <span class="season high">TOO CROWDED</span><p class="dim-medium">
+                                                             <i class="wi wi-day-sunny"></i> 
+                                                             <span>25°/30°</span></p><i class="tick-icon"></i></label></div></div>
+                                    
+                                    <div class="n-tracker-plantotravel-may pdg-card">
+                                                                 <input type="radio" name="pdgMonth" id="MAY" value="MAY" (click)="month('MAY')">
+                                                                 <div class="pdg-card-content"><label for="MAY"><h6>May</h6>
+                                                                 <span class="season our-pick">OUR PICK</span><p class="dim-medium">
+                                                                     <i class="wi wi-day-sunny"></i> 
+                                                                     <span>25°/30°</span></p><i class="tick-icon"></i></label></div></div>
+                                                                    
+                                    <div class="n-tracker-plantotravel-june pdg-card">
+                                                                         <input type="radio" name="pdgMonth" id="JUNE" value="JUNE" (click)="month('JUNE')">
+                                                                         <div class="pdg-card-content"><label for="JUNE"><h6>Jun</h6>
+                                                                         <span class="season our-pick">OUR PICK</span>
+                                                                         <p class="dim-medium"><i class="wi wi-day-sunny"></i> 
+                                                                         <span>24°/30°</span></p><i class="tick-icon"></i></label></div></div>
+                                                                         
+                                                                         
+                                    <div class="n-tracker-plantotravel-july pdg-card">
+                                                                             <input type="radio" name="pdgMonth" id="JULY" value="JULY" (click)="month('JULY')">
+                                                                             <div class="pdg-card-content"><label for="JULY"><h6>Jul</h6>
+                                                                             <span class="season high">TOO CROWDED</span><p class="dim-medium">
+                                                                                 <i class="wi wi-day-sunny"></i> 
+                                                                                 <span>24°/29°</span></p><i class="tick-icon"></i></label></div></div>
+                                                                                
+                                    <div class="n-tracker-plantotravel-august pdg-card">
+                                                                                     <input type="radio" name="pdgMonth" id="AUGUST" value="AUGUST" (click)="month('AUGUST')"><div class="pdg-card-content"><label for="AUGUST"><h6>Aug</h6><span class="season high">TOO CROWDED</span><p class="dim-medium"><i class="wi wi-day-sunny"></i> <span>23°/28°</span></p><i class="tick-icon"></i></label></div></div><div class="n-tracker-plantotravel-september pdg-card disable"><input type="radio" name="pdgMonth" disabled="" id="SEPTEMBER" value="SEPTEMBER"><div class="pdg-card-content"><label for="SEPTEMBER"><h6>Sep</h6><span class="season our-pick">OUR PICK</span><p class="dim-medium"><i class="wi wi-day-sunny"></i> <span>23°/29°</span></p><i class="tick-icon"></i></label></div></div><div class="n-tracker-plantotravel-october pdg-card disable">
+                                                                                         <input type="radio" name="pdgMonth" disabled="" id="OCTOBER" value="OCTOBER">
+                                                                                         <div class="pdg-card-content"><label for="OCTOBER"><h6>Oct</h6><span class="season our-pick">OUR PICK</span><p class="dim-medium"><i class="wi wi-day-sunny"></i> <span>24°/29°</span></p><i class="tick-icon"></i></label></div></div><div class="n-tracker-plantotravel-november pdg-card disable"><input type="radio" name="pdgMonth" disabled="" id="NOVEMBER" value="NOVEMBER"><div class="pdg-card-content">
+                                                                                             <label for="NOVEMBER"><h6>Nov</h6><span class="season">SECOND BEST</span>
+                                                                                             <p class="dim-medium"><i class="wi wi-day-sunny"></i> <span>24°/30°</span></p>
+                                                                                             <i class="tick-icon"></i>
+                                                                                            </label>
+                                                                                        </div>
+                                                                                        <div >
+                                                                                                
+                                                                                              </div>
+                                                                                              
+                                                                                    </div>
+                                                                                  
+                                                                                </div>
+                                                                                <button
+                                                                                 style="width: 400px;height: 570px; margin-bottom:30px; margin-top: 30px;margin-left: 150px;color: green; "
+                                                                                                
+                                                                                                  type="button"
+                                                                                                  class="btn btn-success wrn-btn"
+                                                                                                  (click)="search2()"
+                                                                                                >
+                                                                                                  Proceed
+                                                                                                </button>
+                                                                                            </section>
+                                                                                  
+                                                                                        </div>
+                                                                                        
+                                                                                    </div>
+                                                                                   
+                                                                                </div>
+                                                                                            
+                                                                                            
+                                                                                             <div class="modal-backdrop fade"></div></div></div><script defer="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://cdn.segment.com/analytics.js/v1/Z7ece5Lv6hrA2Vu7qDOQ4FEpqf6ZSJkQ/analytics.min.js"></script><script type="text/javascript" defer="" rel="preload" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/home-desktop.ed4998b7.chunk.js"></script><script type="text/javascript" defer="" rel="preload" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~main.bdcdc88f.chunk.js"></script><script type="text/javascript" defer="" rel="preload" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/main.0bf5b21e.js"></script>
+                                                                                             <script defer="" type="text/javascript">
+
+
+
+
+
+!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+          analytics.load('Z7ece5Lv6hrA2Vu7qDOQ4FEpqf6ZSJkQ');
+        }}();
+      </script>
+
+      
+  <script src="https://www.googletagmanager.com/gtm.js?id=GTM-PX5SGGD"></script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.defer=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","941224569279376");fbq("set","agent","tmgoogletagmanager","941224569279376");fbq("track","PageView");</script>
+<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.37994779478658325">
+    <img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.34276338012603547" width="0" height="0" alt="" src="https://bat.bing.com/action/0?ti=25034454&amp;Ver=2&amp;mid=0cf04245-b4e1-3bb7-7b26-38deea2e970f&amp;pi=1200101525&amp;lg=en-US&amp;sw=1366&amp;sh=768&amp;sc=24&amp;tl=Customized%20Holiday%20Packages,%20Honeymoon%20%26%20Vacation%20Packages%20-%20Pickyourtrail.com&amp;p=https%3A%2F%2Fpickyourtrail.com%2F&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;lt=3512&amp;evt=pageLoad&amp;msclkid=N&amp;rn=930988">
+</div>
+</body>
+</html>
+
+
+</div>
+
+
+
+<div *ngIf="display2">
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="theme-color" content="#000000"><meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="apple-touch-icon" sizes="57x57" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://pyt-images.imgix.net/images/web_app/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="https://pyt-images.imgix.net/images/web_app/favicons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://pyt-images.imgix.net/images/web_app/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://pyt-images.imgix.net/images/web_app/favicons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://pyt-images.imgix.net/images/web_app/favicons/favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#ffffff"><meta name="msapplication-TileImage" content="https://pyt-images.imgix.net/images/web_app/favicons/ms-icon-144x144.png">
+      
+        <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.c14ef8ee.css" as="style">
+        <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.e952139a.chunk.css" as="style">
+        <link rel="preload" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/home-desktop.4e8bf920.chunk.css" as="style">
+        <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.c14ef8ee.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.c14ef8ee.css">
+        <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.e952139a.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.e952139a.chunk.css">
+        <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/home-desktop.4e8bf920.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/home-desktop.4e8bf920.chunk.css">
+        <style data-styled="" data-styled-version="4.3.2"></style>
+        <script src="https://connect.facebook.net/signals/config/941224569279376?v=2.9.14&amp;r=stable" async=""></script><script defer="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="//bat.bing.com/bat.js"></script><script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+<script type="text/javascript" async="" src="https://www.google-analytics.com/gtm/js?id=GTM-TSJ9VC7&amp;cid=1410505208.1570428445"></script><script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~agents~booking-screens~desktop-speedboat-landing-cred-gcm~desktop-speedboat-landing-gcm~duba~64a227d9.db6c5d0c.chunk.js"></script><script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~agents~booking-screens~desktop-speedboat-landing-cred-gcm~desktop-speedboat-landing-gcm~duba~8ec031d1.bce9ac34.chunk.js"></script><script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~home-desktop~home-mobile.430a4234.chunk.js"></script><script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~home-desktop.e1fe3853.chunk.js"></script><script defer="" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/scripts/custom_scripts.js"></script><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/787746386/?random=1574783538933&amp;cv=9&amp;fst=1574783538933&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;eid=376635470&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&amp;u_aw=1366&amp;u_cd=24&amp;u_his=3&amp;u_tz=300&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=6&amp;gtm=2wgav9&amp;sendb=1&amp;ig=1&amp;frm=0&amp;url=https%3A%2F%2Fpickyourtrail.com%2F&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;tiba=Customized%20Holiday%20Packages%2C%20Honeymoon%20%26%20Vacation%20Packages%20-%20Pickyourtrail.com&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script><script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.5/lottie_svg.min.js"></script><script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~booking-screens~cred-itinerary~dubai-itinerary~home-mobile~inclusions-modals-v1~inclusions-v~aed51ac1.a0080e54.chunk.js"></script><script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~pdg.f05c1b6f.chunk.js"></script><link rel="stylesheet" type="text/css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/pdg.f59e8f38.chunk.css"><script charset="utf-8" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/pdg.676f0b9c.chunk.js"></script></head>
+
+
+
+<body class="crisp-hidden-xs"><noscript>
+    
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PX5SGGD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <div id="root"><div class="offcanvas-bg sc-bdVaJa eDPzbJ"></div>
+    <aside class="offcanvas-menu sc-bwzfXH dmfmYi">
+        <div class="clearfix hdr"><p>Hello Guest,</p><span class="pull-right"><i id="menuClose" class="pyt-close-16"></i></span></div>
+      </aside><div class="main-container"><header class="navbar-outer sc-htpNat dTjmbA">
+                        <nav class="navbar navbar-default sc-bxivhb hUEKwm"><div class="container"><div class="row"><div class="col-xs-6 col-sm-3 col-md-4">
+                            </div>
+                                </div>
+                                                        </div></nav></header>
+                                                        
+                                                        <div class="clearfix content-wrap"><div class="search-container show-search">
+                                                            
+                                                            <div class="search-content"><section class="clearfix search-field"><div class="clearfix pos-r"><p class="mb-0"><i class="pyt-navigation-16"></i><b><span class="hidden-xs">NOW PLANNING</span> <span class="hidden-sm hidden-md hidden-lg text-uppercase">{{destination}}</span></b>
+                                                            <span class="hidden-xs main-para">: A vacation in <span><a href="/customize/idn">{{months}}</a></span>  to...</span></p><a target="_self" href="/"><i class="pyt-close-16 close-search visible-xs"></i></a></div><section class="clearfix search-input-container"><div class="clearfix pos-r input-holder"><h4 class="input-text-style"><span class="visible-sm visible-md visible-lg">{{destination}}</span><span class="visible-xs">Trip duration</span></h4><i class="pyt-close-16 close-search hidden-xs"></i>
+                                                            <a target="_self" href="home/search"><i class="pyt-close-16 close-search hidden-xs"></i></a>
+                                                            <div class="arrows visible-xs">
+                                                                <a class="pull-left" href="#"><i class="pyt-arrow-left-16"></i></a><a class="pull-right disabled" href="#"><i class="pyt-arrow-right-16"></i></a></div></div><ul class="clearfix list-unstyled mb-0"><li class="active"></li><li class="active"></li><li class="active"></li><li></li><li></li></ul></section></section><section class="clearfix pdg-days next-slide search-options-wrapper slide-left-in showed"><div class="clearfix text-center pdg-title hidden-xs">
+                                                                  <h4>How many days have you got?</h4></div>
+                                                                  <div class="clearfix row-eq-hgt n-tracker-totalhmdays">
+                                                                    
+                                                                    <div class="pdg-card n-tracker-hm-days-1">
+                                                                      <input type="radio" name="pdgDuration" id="pdg-duration-1" value="6" (click)="days('3-5')">
+                                                                      <div class="pdg-card-content"><label for="pdg-duration-1">
+                                                                        <span class="img d-img-1"></span><i class="tick-icon"></i>
+                                                                        <p class="vmargin-small mb-0">3-5 days</p></label></div></div>
+                                                                        
+                                                                        <div class="pdg-card n-tracker-hm-days-2">
+                                                                          <input type="radio" name="pdgDuration" id="pdg-duration-2" value="6" (click)="days('6-8')">
+                                                                          <div class="pdg-card-content"><label for="pdg-duration-2"><span class="img d-img-2"></span>
+                                                                            <i class="tick-icon"></i><p class="vmargin-small mb-0">6-8 days</p></label></div></div>
+                                                                            
+                                                                            <div class="pdg-card n-tracker-hm-days-3">
+                                                                              <input type="radio" name="pdgDuration" id="pdg-duration-3" value="6" (click)="days('9-11')">
+                                                                              <div class="pdg-card-content"><label for="pdg-duration-3">
+                                                                                <span class="img d-img-3"></span><i class="tick-icon"></i>
+                                                                                <p class="vmargin-small mb-0">9-11 days</p></label></div></div>
+                                                                                
+                                                                                
+                                                                                <div class="pdg-card n-tracker-hm-days-4">
+                                                                                  <input type="radio" name="pdgDuration" id="pdg-duration-4" value="6" (click)="days('12-15')">
+                                                                                  <div class="pdg-card-content"><label for="pdg-duration-4">
+                                                                                    <span class="img d-img-4"></span><i class="tick-icon"></i>
+                                                                                    <p class="vmargin-small mb-0">12-15 days</p>
+                                                                </label>
+                                                                </div>
+                                                                </div>
+                                                                </div>
+                                                             
+                                                                </section>
+                                                                </div>
+                                                                </div>
+                                                                </div>
+                                                                <div class="modal-backdrop fade"></div></div></div>
+                                                                <script defer="" src="https://www.google-analytics.com/analytics.js"></script>
+                                                                <script type="text/javascript" async="" src="https://cdn.segment.com/analytics.js/v1/Z7ece5Lv6hrA2Vu7qDOQ4FEpqf6ZSJkQ/analytics.min.js"></script>
+                                                                <script type="text/javascript" defer="" rel="preload" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/home-desktop.ed4998b7.chunk.js"></script><script type="text/javascript" defer="" rel="preload" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/vendors~main.bdcdc88f.chunk.js"></script><script type="text/javascript" defer="" rel="preload" src="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/js/main.0bf5b21e.js"></script><script defer="" type="text/javascript">
+        !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+          analytics.load('Z7ece5Lv6hrA2Vu7qDOQ4FEpqf6ZSJkQ');
+        }}();
+      </script><script src="https://www.googletagmanager.com/gtm.js?id=GTM-PX5SGGD"></script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.defer=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","941224569279376");fbq("set","agent","tmgoogletagmanager","941224569279376");fbq("track","PageView");</script>
+</body></html>
+
+</div>
+
+<div *ngIf="display3">
+
+    <img src="assets/itinerary.PNG" alt="sad">
+<div class="row">
+    <div class="col-md-4">
+            <button
+            style="width: 150px;align-self: center;"
+            type="button"
+                                                                                                          
+            class="btn btn-success wrn-btn"
+            (click)="customize()"
+          >
+            Customize
+          </button>
+    </div>
+    <div class="col-md-4">
+
+        </div>
+        <div class="col-md-2">
+
+            </div>
+            
+
+    <div class="col-md-2">
+           
+          <button
+          style="width: 150px;align-self: center;"
+          type="button"
+                                                                                                        
+          class="btn btn-danger wrn-btn"
+          (click)="start()"
+          
+        >
+          Start Over
+        </button>
+        </div>
+        
+</div>
+    
+</div>
+
+<div *ngIf="TripType">
+
+  
+    
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+        
+        <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css.br">
+        <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css.br">
+        <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css.br">
+      
+      
+          
+          <link rel="stylesheet" type="text/css"
+           href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/pdg.0cb933c5.chunk.css">
+          
+        </head>
+          
+  
+  <body class="crisp-hidden-xs"><noscript>
+   </noscript>
+  
+    <div id="root">
+      <div class="offcanvas-bg sc-bdVaJa eDPzbJ"></div>
+                 <div class="main-container">
+                   
+                   <div class="clearfix content-wrap">
+                     <div class="search-container show-search">
+                       <div class="search-content">
+                         <section class="clearfix pdg-interests">
+                           <section class="clearfix search-field">
+                             <div class="clearfix pos-r">
+                               <p class="mb-0"><i class="pyt-navigation-16"></i>
+                               <b><span class="hidden-xs">NOW PLANNING</span>
+                                
+                                </b><span class="hidden-xs main-para">: A vacation in <span>
+                                  <a href="/customize/idn">{{months}}</a></span> for 
+                                  <a href="/customize/idn/month">{{no_of_days}}</a> to...</span></p>
+                                  <a target="_self" href="/">
+                                  <i class="pyt-close-16 close-search visible-xs"></i></a></div>
+                                  <section class="clearfix search-input-container">
+                                    <div class="clearfix pos-r input-holder">
+                                      <h4 class="input-text-style">
+                                        <span class="visible-sm visible-md visible-lg">{{destination}}</span>
+                                       </h4>
+                                        <i class="pyt-close-16 close-search hidden-xs"></i>
+                                        <a target="_self" href="/">
+                                        <i class="pyt-close-16 close-search hidden-xs"></i></a>
+                                        <div class="arrows visible-xs"><a class="pull-left" href="#">
+                                          <i class="pyt-arrow-left-16"></i></a>
+                                          <a class="pull-right disabled" href="#">
+                                            <i class="pyt-arrow-right-16"></i></a></div></div>
+                                            
+                                            
+                                            <ul class="clearfix list-unstyled mb-0">
+                                              <li class="active"></li><li class="active"></li>
+                                              <li class="active"></li><li class="active"></li><li>
+
+                                              </li></ul></section></section>
+      <section class="clearfix pdg-interests next-slide search-options-wrapper slide-left-in showed">
+        <div class="clearfix text-center pdg-title hidden-xs"><h4>What do you like to see and do?</h4>
+        </div><div class="clearfix row-eq-hgt"><div class="clearfix row-eq-hgt n-tracker-totalseeanddo">
+        
+          <div class="pdg-card n-tracker-seeanddo-2">
+            
+            <input type="checkbox" id="2" name="interest-card-input" value="2" (click)="fullfinal()">
+            <div class="pdg-card-content"><label for="2"><span class="img int-img-2"></span>
+            <i class="tick-icon"></i><p>Art &amp; Culture</p></label></div></div>
+            
+            <div class="pdg-card n-tracker-seeanddo-1">
+              <input type="checkbox" id="1" name="interest-card-input" value="1" (click)="fullfinal()">
+              <div class="pdg-card-content"><label for="1"><span class="img int-img-1"></span>
+              <i class="tick-icon"></i><p>Adventure &amp; Outdoor</p></label></div></div>
+              
+              <div class="pdg-card n-tracker-seeanddo-3">
+                <input type="checkbox" id="3" name="interest-card-input" value="3" (click)="fullfinal()">
+                <div class="pdg-card-content"><label for="3"><span class="img int-img-3"></span>
+                <i class="tick-icon"></i><p>Food &amp; Nightlife</p></label></div></div>
+                
+                <div class="pdg-card n-tracker-seeanddo-4">
+                  <input type="checkbox" id="4" name="interest-card-input" value="4" (click)="fullfinal()">
+                  <div class="pdg-card-content"><label for="4"><span class="img int-img-4"></span>
+                  <i class="tick-icon"></i><p>Shopping &amp; Leisure</p></label></div></div>
+                  
+                 
+                  
+                    
+                    </div></div></section></section></div>
+                    
+                    </div></div>
+          <div class="modal-backdrop fade"></div></div></div>
+      
+     
+   
+
+ 
+</body></html>
+</div>
+
+
+<div *ngIf="last">
+
+
+  
+  <section class="white-stripe arrow">
+    <div class="container">
+      <h3>Destinations</h3>
+    </div>
+  </section>
+  <section class="timeline">
+    <div class="container" *ngFor="let item of itinerary">
+      
+      <div class="row">
+        <a href="search">
+          <div class="country-block col-md-8">
+            <i ></i>
+          
+          <h5>
+            Route: {{item.fromcity}}---->{{item.cityname}}
+          </h5>
+         
+          <br/>
+          <h5>
+            Route To follow
+          </h5>
+          <div *ngFor="let it of item.CurrentRoute">
+           
+            <h6>
+              {{it.StartPoint}}----->{{it.EndPoint}}
+            </h6>
+            </div>
+            <br/>
+
+            
+           <h5> Stay over city:</h5>
+            <h5>
+                {{item.cityname}}
+             </h5>
+            
+
+           <h5> Attraction Point To Visit:</h5>
+            <div *ngFor="let it of item.AttractionPoints">
+              <h5>
+                 {{it.AttractionName}}
+              </h5>
+              </div>
+          </div>
+        
+        </a>
+        <div class="date-block col-md-4">
+          <div>  DayNo: {{item.Dayno}}</div>
+        </div>
+      </div>
+    </div>
+    <button
+    style="width: 150px;align-self: left;"
+    type="button"
+                                                                                                  
+    class="btn btn-danger wrn-btn"
+    (click)="getCost()"
+    
+  >
+    Get Trip Cost
+  </button>
+    <button
+    style="width: 150px;align-self: right;"
+    type="button"
+                                                                                                  
+    class="btn btn-danger wrn-btn"
+    (click)="customizeItinerary()"
+    
+  >
+    Customize
+  </button>
+
+  </section>
+  
+</div>
+<hr />
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- Footer Links -->
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+
+  <div class="footer-copyright text-center py-3">
+    © 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/angular/"> RADTech.com</a>
+  </div>
+  <img
+    style="height: 50px; width: 50px;margin-left: 600px;"
+    src="assets/logo.png"
+    alt="df"
+  />
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+</div>
+

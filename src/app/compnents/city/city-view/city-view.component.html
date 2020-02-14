@@ -1,0 +1,89 @@
+<mat-table [dataSource]="routeList" class="mat-elevation-z8">
+  <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="CityName">
+    <mat-header-cell *matHeaderCellDef> CityName </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="CityName: ">
+      {{ element.CityName }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="StayPriority">
+    <mat-header-cell *matHeaderCellDef> StayPriority </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="StayPriority: ">
+      {{ element.StayPriority }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Longitude">
+    <mat-header-cell *matHeaderCellDef> Longitude </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Longitude: ">
+      {{ element.Longitude }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="Latitude">
+    <mat-header-cell *matHeaderCellDef> Latitude </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Latitude: ">
+      {{ element.Latitude }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="MaximumStop">
+    <mat-header-cell *matHeaderCellDef> MaximumStop </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="MaximumStop: ">
+      {{ element.MaximumStop }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let element" data-label="Actions: ">
+      <button
+        class="btn btn-outline-primary action"
+        routerLink="edit/{{ element._id }}"
+        type="button"
+      >
+        <i class="material-icons">
+          create
+        </i>
+      </button>
+
+      <button
+        class="btn btn-outline-primary action"
+        (click)="onDelete(element._id)"
+        type="button"
+      >
+        <i class="material-icons">
+          delete_sweep
+        </i>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<hr />
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+  <!-- Footer Links -->
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+
+  <div class="footer-copyright text-center py-3">
+    © 2018 Copyright:
+    <a href="https://mdbootstrap.com/education/angular/"> RADTech.com</a>
+  </div>
+  <img
+    style="height: 50px; width: 50px;margin-left: 600px;"
+    src="assets/logo.png"
+    alt="df"
+  />
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
