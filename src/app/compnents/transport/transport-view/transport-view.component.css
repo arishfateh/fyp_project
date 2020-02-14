@@ -31,11 +31,13 @@
 .users-list .actions-col .icon {
   font-size: 20px;
 }
-.image{
-  height:100%; background-size:cover; width:100%;
-  background-image:url('./images/light-colours-wallpapers-plain-colors-wallpapers-light-colours-wallpapers-plain-colors-wallpaper-light-colors-wallpaper-light-colours-wallpapers-light-colours-wallpapers-hd.jpg');
-  background-position:50% 50%;
+.image {
+  height: 100%;
+  background-size: cover;
+  width: 100%;
+  background-image: url("./images/light-colours.jpg");
+  background-position: 50% 50%;
 }
-.mat-card{
+.mat-card {
   background-color: rgba(0, 0, 0, 0.5);
 }

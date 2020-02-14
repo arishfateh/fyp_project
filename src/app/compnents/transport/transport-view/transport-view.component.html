@@ -1,67 +1,62 @@
 <div class="image">
-    <div class="container-fluid">
-      <div class="row">
-      
-        
-          <div class="col-md-12">
-            <h3 style="text-align: center; color: white">Rental Transport</h3>
-          </div>
-        
-       <div class="col-md-2"></div>
-       <div class="col-md-8">
-         
-            
-
-  <div *ngIf="stayList && jaj">
+  <div class="container-fluid">
+    <div class="row">
       <div class="col-md-12">
-          <h5 style="color: white">NO of Total Rental Transport : {{ len }}</h5>
-        </div>
-      <div
-        *ngFor="let item of stayList"
-        class="list-group-item list-group-item-action flex-column align-items-start"
-      >
-        <div class="row">
-          <div class="col col-md-8 text-col">
-            <h5>City: {{ item.City }}</h5>
-            <h6 class="mb-1">Vendor Name: {{ item.VendorName }}</h6>
-            <h6 class="mb-1">Vendor PhoneNo: {{ item.VendorPhoneNo }}</h6>
+        <h3 style="text-align: center; color: white">Rental Transport</h3>
+      </div>
 
-            <h6>No of Vehicles: {{ item.NoOfVehicles }}</h6>
-            <mat-toolbar style="margin-bottom:10px;background:none">
-              <span>Transport Types</span>
-              <span class="fill-remaining-space"></span>
-            </mat-toolbar>
-            <mat-card>
-                <mat-card-content>
-            <div
-              *ngFor="let i of item.TransportType"
-              class="list-group-item list-group-item-action flex-column align-items-start"
-            >
-           
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div *ngIf="stayList && jaj">
+          <div class="col-md-12">
+            <h5 style="color: white">
+              NO of Total Rental Transport : {{ len }}
+            </h5>
+          </div>
+          <div
+            *ngFor="let item of stayList"
+            class="list-group-item list-group-item-action flex-column align-items-start"
+          >
+            <div class="row">
               <div class="col col-md-8 text-col">
-                <h5>Transport Name: {{ i.TransportName }}</h5>
-                <h6 class="mb-1">Price: {{ i.Price }}</h6>
-                <h6 class="mb-1">City: {{ i.Capacity }}</h6>
+                <h5>City: {{ item.City }}</h5>
+                <h6 class="mb-1">Vendor Name: {{ item.VendorName }}</h6>
+                <h6 class="mb-1">Vendor PhoneNo: {{ item.VendorPhoneNo }}</h6>
+
+                <h6>No of Vehicles: {{ item.NoOfVehicles }}</h6>
+                <mat-toolbar style="margin-bottom:10px;background:none">
+                  <span>Transport Types</span>
+                  <span class="fill-remaining-space"></span>
+                </mat-toolbar>
+                <mat-card>
+                  <mat-card-content>
+                    <div
+                      *ngFor="let i of item.TransportType"
+                      class="list-group-item list-group-item-action flex-column align-items-start"
+                    >
+                      <div class="col col-md-8 text-col">
+                        <h5>Transport Name: {{ i.TransportName }}</h5>
+                        <h6 class="mb-1">Price: {{ i.Price }}</h6>
+                        <h6 class="mb-1">City: {{ i.Capacity }}</h6>
+                      </div>
+                    </div>
+                  </mat-card-content>
+                </mat-card>
+
+                <div class="col col-md-2 actions-col">
+                  <button
+                    class="btn btn-outline-primary action"
+                    (click)="onDelete(item.ID)"
+                    type="button"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
-            </div>
-          
-          </mat-card-content>
-        </mat-card>
-         
-            <div class="col col-md-2 actions-col">
-              <button
-                class="btn btn-outline-primary action"
-                (click)="onDelete(item.ID)"
-                type="button"
-              >
-                Delete
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
 </div>

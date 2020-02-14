@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const MongoClient = require('mongodb').MongoClient;
 ///////////
+const path = require('path')
 
 const attractionpoint = require("./routes/api/attractionpoints");
 const city = require("./routes/api/city");
@@ -68,7 +69,7 @@ mongoose
 */
 
 mongoose
-    .connect("mongodb+srv://user1:1234@cluster0-7b0mc.mongodb.net/test?retryWrites=true&w=majority", {
+    .connect(process.env.MONGODB_URI || "mongodb+srv://user1:1234@cluster0-7b0mc.mongodb.net/test?retryWrites=true&w=majority", {
         useNewUrlParser: true,
         useFindAndModify: false
     })
@@ -105,6 +106,14 @@ app.use("/itinerary", itinerarys);
 app.use("/users", users);
 
 app.use("/hotel", hotels)
+
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('dist'))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    })
+}
 
 const port = process.env.PORT || 3000;
 
