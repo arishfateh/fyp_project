@@ -83,15 +83,15 @@ export class AttractionViewComponent implements OnInit {
   // }
 
 
-  local() {
-    let Itinerary: Array<AttractionPoint> = JSON.parse(localStorage.getItem('attractionpoints'));
-    console.log(Itinerary)
-    for (var i = 0; i < Itinerary.length; i++) {
-      this.Service.addAtr(Itinerary[i]);
-      console.log("added")
-    }
+  // local() {
+  //   let Itinerary: Array<AttractionPoint> = JSON.parse(localStorage.getItem('attractionpoints'));
+  //   console.log(Itinerary)
+  //   for (var i = 0; i < Itinerary.length; i++) {
+  //     this.Service.addAtr(Itinerary[i]);
+  //     console.log("added")
+  //   }
 
-  }
+  // }
 
   getData() {
 

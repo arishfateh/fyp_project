@@ -127,6 +127,14 @@ export class ItineraryViewComponent implements OnInit {
       // }
     }
   }
+  /*
+    local() {
+      // for (var i = 0; i < this.hotel.length; i++) {
+      this.ItineraryService.addcitylocal(this);
+      console.log("added")
+      //}
+    }*/
+
   getData() {
     /*
       var x = this.ItineraryService.getdata();

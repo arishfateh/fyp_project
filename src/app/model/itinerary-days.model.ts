@@ -9,6 +9,7 @@ export class ItineraryDays {
     Activity: Array<AttractionPoint> = [];
     RouteToFollow: Array<Route> = [];
     StayCity: string;
+    scores: Array<number> = [];
 
 
 }

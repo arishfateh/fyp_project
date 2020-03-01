@@ -535,22 +535,22 @@
         
           <div class="pdg-card n-tracker-seeanddo-2">
             
-            <input type="checkbox" id="2" name="interest-card-input" value="2" (click)="fullfinal()">
+            <input type="checkbox" id="2" name="interest-card-input" value="2" (click)="catagory1(1)">
             <div class="pdg-card-content"><label for="2"><span class="img int-img-2"></span>
             <i class="tick-icon"></i><p>Art &amp; Culture</p></label></div></div>
             
             <div class="pdg-card n-tracker-seeanddo-1">
-              <input type="checkbox" id="1" name="interest-card-input" value="1" (click)="fullfinal()">
+              <input type="checkbox" id="1" name="interest-card-input" value="1" (click)="catagory1(2)">
               <div class="pdg-card-content"><label for="1"><span class="img int-img-1"></span>
               <i class="tick-icon"></i><p>Adventure &amp; Outdoor</p></label></div></div>
               
               <div class="pdg-card n-tracker-seeanddo-3">
-                <input type="checkbox" id="3" name="interest-card-input" value="3" (click)="fullfinal()">
+                <input type="checkbox" id="3" name="interest-card-input" value="3" (click)="catagory1(3)">
                 <div class="pdg-card-content"><label for="3"><span class="img int-img-3"></span>
                 <i class="tick-icon"></i><p>Food &amp; Nightlife</p></label></div></div>
                 
                 <div class="pdg-card n-tracker-seeanddo-4">
-                  <input type="checkbox" id="4" name="interest-card-input" value="4" (click)="fullfinal()">
+                  <input type="checkbox" id="4" name="interest-card-input" value="4" (click)="catagory1(4)">
                   <div class="pdg-card-content"><label for="4"><span class="img int-img-4"></span>
                   <i class="tick-icon"></i><p>Shopping &amp; Leisure</p></label></div></div>
                   
@@ -568,6 +568,417 @@
  
 </body></html>
 </div>
+
+
+
+
+<div *ngIf="catagory21">
+
+  
+    
+  <html lang="en">
+      <head>
+          <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+          
+          <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css.br">
+          <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css.br">
+          <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css.br">
+        
+        
+            
+            <link rel="stylesheet" type="text/css"
+             href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/pdg.0cb933c5.chunk.css">
+            
+          </head>
+            
+    
+    <body class="crisp-hidden-xs"><noscript>
+     </noscript>
+    
+      <div id="root">
+        <div class="offcanvas-bg sc-bdVaJa eDPzbJ"></div>
+                   <div class="main-container">
+                     
+                     <div class="clearfix content-wrap">
+                       <div class="search-container show-search">
+                         <div class="search-content">
+                           <section class="clearfix pdg-interests">
+                             <section class="clearfix search-field">
+                               <div class="clearfix pos-r">
+                                 <p class="mb-0"><i class="pyt-navigation-16"></i>
+                                 <b><span class="hidden-xs">NOW PLANNING</span>
+                                  
+                                  </b><span class="hidden-xs main-para">: A vacation in <span>
+                                    <a href="/customize/idn">{{months}}</a></span> for 
+                                    <a href="/customize/idn/month">{{no_of_days}}</a> to...</span></p>
+                                    <a target="_self" href="/">
+                                    <i class="pyt-close-16 close-search visible-xs"></i></a></div>
+                                    <section class="clearfix search-input-container">
+                                      <div class="clearfix pos-r input-holder">
+                                        <h4 class="input-text-style">
+                                          <span class="visible-sm visible-md visible-lg">{{destination}}</span>
+                                         </h4>
+                                          <i class="pyt-close-16 close-search hidden-xs"></i>
+                                          <a target="_self" href="/">
+                                          <i class="pyt-close-16 close-search hidden-xs"></i></a>
+                                          <div class="arrows visible-xs"><a class="pull-left" href="#">
+                                            <i class="pyt-arrow-left-16"></i></a>
+                                            <a class="pull-right disabled" href="#">
+                                              <i class="pyt-arrow-right-16"></i></a></div></div>
+                                              
+                                              
+                                              <ul class="clearfix list-unstyled mb-0">
+                                                <li class="active"></li><li class="active"></li>
+                                                <li class="active"></li><li class="active"></li><li>
+  
+                                                </li></ul></section></section>
+        <section class="clearfix pdg-interests next-slide search-options-wrapper slide-left-in showed">
+          <div class="clearfix text-center pdg-title hidden-xs"><h4>What do you like to see and do?</h4>
+          </div><div class="clearfix row-eq-hgt"><div class="clearfix row-eq-hgt n-tracker-totalseeanddo">
+          
+            <div class="pdg-card n-tracker-seeanddo-2">
+              
+              <input type="checkbox" id="2" name="interest-card-input" value="2" (click)="catagory2(1)">
+              <div class="pdg-card-content"><label for="2"><span class="img int-img-2"></span>
+              <i class="tick-icon"></i><p>Art &amp; Culture</p></label></div></div>
+              
+              <div class="pdg-card n-tracker-seeanddo-1">
+                <input type="checkbox" id="1" name="interest-card-input" value="1" (click)="catagory2(2)">
+                <div class="pdg-card-content"><label for="1"><span class="img int-img-1"></span>
+                <i class="tick-icon"></i><p>Adventure &amp; Outdoor</p></label></div></div>
+                
+                <div class="pdg-card n-tracker-seeanddo-3">
+                  <input type="checkbox" id="3" name="interest-card-input" value="3" (click)="catagory2(3)">
+                  <div class="pdg-card-content"><label for="3"><span class="img int-img-3"></span>
+                  <i class="tick-icon"></i><p>Food &amp; Nightlife</p></label></div></div>
+                  
+                  <div class="pdg-card n-tracker-seeanddo-4">
+                    <input type="checkbox" id="4" name="interest-card-input" value="4" (click)="catagory2(4)">
+                    <div class="pdg-card-content"><label for="4"><span class="img int-img-4"></span>
+                    <i class="tick-icon"></i><p>Shopping &amp; Leisure</p></label></div></div>
+                    
+                   
+                    
+                      
+                      </div></div></section></section></div>
+                      
+                      </div></div>
+            <div class="modal-backdrop fade"></div></div></div>
+        
+       
+     
+  
+   
+  </body></html>
+  </div>
+  
+
+
+
+  <div *ngIf="catagory31">
+
+  
+    
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+            
+            <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css.br">
+            <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css.br">
+            <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css.br">
+          
+          
+              
+              <link rel="stylesheet" type="text/css"
+               href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/pdg.0cb933c5.chunk.css">
+              
+            </head>
+              
+      
+      <body class="crisp-hidden-xs"><noscript>
+       </noscript>
+      
+        <div id="root">
+          <div class="offcanvas-bg sc-bdVaJa eDPzbJ"></div>
+                     <div class="main-container">
+                       
+                       <div class="clearfix content-wrap">
+                         <div class="search-container show-search">
+                           <div class="search-content">
+                             <section class="clearfix pdg-interests">
+                               <section class="clearfix search-field">
+                                 <div class="clearfix pos-r">
+                                   <p class="mb-0"><i class="pyt-navigation-16"></i>
+                                   <b><span class="hidden-xs">NOW PLANNING</span>
+                                    
+                                    </b><span class="hidden-xs main-para">: A vacation in <span>
+                                      <a href="/customize/idn">{{months}}</a></span> for 
+                                      <a href="/customize/idn/month">{{no_of_days}}</a> to...</span></p>
+                                      <a target="_self" href="/">
+                                      <i class="pyt-close-16 close-search visible-xs"></i></a></div>
+                                      <section class="clearfix search-input-container">
+                                        <div class="clearfix pos-r input-holder">
+                                          <h4 class="input-text-style">
+                                            <span class="visible-sm visible-md visible-lg">{{destination}}</span>
+                                           </h4>
+                                            <i class="pyt-close-16 close-search hidden-xs"></i>
+                                            <a target="_self" href="/">
+                                            <i class="pyt-close-16 close-search hidden-xs"></i></a>
+                                            <div class="arrows visible-xs"><a class="pull-left" href="#">
+                                              <i class="pyt-arrow-left-16"></i></a>
+                                              <a class="pull-right disabled" href="#">
+                                                <i class="pyt-arrow-right-16"></i></a></div></div>
+                                                
+                                                
+                                                <ul class="clearfix list-unstyled mb-0">
+                                                  <li class="active"></li><li class="active"></li>
+                                                  <li class="active"></li><li class="active"></li><li>
+    
+                                                  </li></ul></section></section>
+          <section class="clearfix pdg-interests next-slide search-options-wrapper slide-left-in showed">
+            <div class="clearfix text-center pdg-title hidden-xs"><h4>What do you like to see and do?</h4>
+            </div><div class="clearfix row-eq-hgt"><div class="clearfix row-eq-hgt n-tracker-totalseeanddo">
+            
+              <div class="pdg-card n-tracker-seeanddo-2">
+                
+                <input type="checkbox" id="2" name="interest-card-input" value="2" (click)="catagory3(1)">
+                <div class="pdg-card-content"><label for="2"><span class="img int-img-2"></span>
+                <i class="tick-icon"></i><p>Art &amp; Culture</p></label></div></div>
+                
+                <div class="pdg-card n-tracker-seeanddo-1">
+                  <input type="checkbox" id="1" name="interest-card-input" value="1" (click)="catagory3(2)">
+                  <div class="pdg-card-content"><label for="1"><span class="img int-img-1"></span>
+                  <i class="tick-icon"></i><p>Adventure &amp; Outdoor</p></label></div></div>
+                  
+                  <div class="pdg-card n-tracker-seeanddo-3">
+                    <input type="checkbox" id="3" name="interest-card-input" value="3" (click)="catagory3(3)">
+                    <div class="pdg-card-content"><label for="3"><span class="img int-img-3"></span>
+                    <i class="tick-icon"></i><p>Food &amp; Nightlife</p></label></div></div>
+                    
+                    <div class="pdg-card n-tracker-seeanddo-4">
+                      <input type="checkbox" id="4" name="interest-card-input" value="4" (click)="catagory3(4)">
+                      <div class="pdg-card-content"><label for="4"><span class="img int-img-4"></span>
+                      <i class="tick-icon"></i><p>Shopping &amp; Leisure</p></label></div></div>
+                      
+                     
+                      
+                        
+                        </div></div></section></section></div>
+                        
+                        </div></div>
+              <div class="modal-backdrop fade"></div></div></div>
+          
+         
+       
+    
+     
+    </body></html>
+    </div>
+    
+
+    <div *ngIf="catagory41">
+
+  
+    
+      <html lang="en">
+          <head>
+              <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+              
+              <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css.br">
+              <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css.br">
+              <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css.br">
+            
+            
+                
+                <link rel="stylesheet" type="text/css"
+                 href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/pdg.0cb933c5.chunk.css">
+                
+              </head>
+                
+        
+        <body class="crisp-hidden-xs"><noscript>
+         </noscript>
+        
+          <div id="root">
+            <div class="offcanvas-bg sc-bdVaJa eDPzbJ"></div>
+                       <div class="main-container">
+                         
+                         <div class="clearfix content-wrap">
+                           <div class="search-container show-search">
+                             <div class="search-content">
+                               <section class="clearfix pdg-interests">
+                                 <section class="clearfix search-field">
+                                   <div class="clearfix pos-r">
+                                     <p class="mb-0"><i class="pyt-navigation-16"></i>
+                                     <b><span class="hidden-xs">NOW PLANNING</span>
+                                      
+                                      </b><span class="hidden-xs main-para">: A vacation in <span>
+                                        <a href="/customize/idn">{{months}}</a></span> for 
+                                        <a href="/customize/idn/month">{{no_of_days}}</a> to...</span></p>
+                                        <a target="_self" href="/">
+                                        <i class="pyt-close-16 close-search visible-xs"></i></a></div>
+                                        <section class="clearfix search-input-container">
+                                          <div class="clearfix pos-r input-holder">
+                                            <h4 class="input-text-style">
+                                              <span class="visible-sm visible-md visible-lg">{{destination}}</span>
+                                             </h4>
+                                              <i class="pyt-close-16 close-search hidden-xs"></i>
+                                              <a target="_self" href="/">
+                                              <i class="pyt-close-16 close-search hidden-xs"></i></a>
+                                              <div class="arrows visible-xs"><a class="pull-left" href="#">
+                                                <i class="pyt-arrow-left-16"></i></a>
+                                                <a class="pull-right disabled" href="#">
+                                                  <i class="pyt-arrow-right-16"></i></a></div></div>
+                                                  
+                                                  
+                                                  <ul class="clearfix list-unstyled mb-0">
+                                                    <li class="active"></li><li class="active"></li>
+                                                    <li class="active"></li><li class="active"></li><li>
+      
+                                                    </li></ul></section></section>
+            <section class="clearfix pdg-interests next-slide search-options-wrapper slide-left-in showed">
+              <div class="clearfix text-center pdg-title hidden-xs"><h4>What do you like to see and do?</h4>
+              </div><div class="clearfix row-eq-hgt"><div class="clearfix row-eq-hgt n-tracker-totalseeanddo">
+              
+                <div class="pdg-card n-tracker-seeanddo-2">
+                  
+                  <input type="checkbox" id="2" name="interest-card-input" value="2" (click)="catagory4(1)">
+                  <div class="pdg-card-content"><label for="2"><span class="img int-img-2"></span>
+                  <i class="tick-icon"></i><p>Art &amp; Culture</p></label></div></div>
+                  
+                  <div class="pdg-card n-tracker-seeanddo-1">
+                    <input type="checkbox" id="1" name="interest-card-input" value="1" (click)="catagory4(2)">
+                    <div class="pdg-card-content"><label for="1"><span class="img int-img-1"></span>
+                    <i class="tick-icon"></i><p>Adventure &amp; Outdoor</p></label></div></div>
+                    
+                    <div class="pdg-card n-tracker-seeanddo-3">
+                      <input type="checkbox" id="3" name="interest-card-input" value="3" (click)="catagory4(3)">
+                      <div class="pdg-card-content"><label for="3"><span class="img int-img-3"></span>
+                      <i class="tick-icon"></i><p>Food &amp; Nightlife</p></label></div></div>
+                      
+                      <div class="pdg-card n-tracker-seeanddo-4">
+                        <input type="checkbox" id="4" name="interest-card-input" value="4" (click)="catagory4(4)">
+                        <div class="pdg-card-content"><label for="4"><span class="img int-img-4"></span>
+                        <i class="tick-icon"></i><p>Shopping &amp; Leisure</p></label></div></div>
+                        
+                       
+                        
+                          
+                          </div></div></section></section></div>
+                          
+                          </div></div>
+                <div class="modal-backdrop fade"></div></div></div>
+            
+           
+         
+      
+       
+      </body></html>
+      </div>
+      
+
+      
+    <div *ngIf="catagory51">
+
+  
+    
+      <html lang="en">
+          <head>
+              <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+              
+              <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/main.616c98f2.css.br">
+              <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/vendors~main.461339a9.chunk.css.br">
+              <link type="text/css" rel="stylesheet" data-href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css" href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/itinerary-v2.ac06d129.chunk.css.br">
+            
+            
+                
+                <link rel="stylesheet" type="text/css"
+                 href="https://d3lf10b5gahyby.cloudfront.net/web_app/static_assets/production/static/css/pdg.0cb933c5.chunk.css">
+                
+              </head>
+                
+        
+        <body class="crisp-hidden-xs"><noscript>
+         </noscript>
+        
+          <div id="root">
+            <div class="offcanvas-bg sc-bdVaJa eDPzbJ"></div>
+                       <div class="main-container">
+                         
+                         <div class="clearfix content-wrap">
+                           <div class="search-container show-search">
+                             <div class="search-content">
+                               <section class="clearfix pdg-interests">
+                                 <section class="clearfix search-field">
+                                   <div class="clearfix pos-r">
+                                     <p class="mb-0"><i class="pyt-navigation-16"></i>
+                                     <b><span class="hidden-xs">NOW PLANNING</span>
+                                      
+                                      </b><span class="hidden-xs main-para">: A vacation in <span>
+                                        <a href="/customize/idn">{{months}}</a></span> for 
+                                        <a href="/customize/idn/month">{{no_of_days}}</a> to...</span></p>
+                                        <a target="_self" href="/">
+                                        <i class="pyt-close-16 close-search visible-xs"></i></a></div>
+                                        <section class="clearfix search-input-container">
+                                          <div class="clearfix pos-r input-holder">
+                                            <h4 class="input-text-style">
+                                              <span class="visible-sm visible-md visible-lg">{{destination}}</span>
+                                             </h4>
+                                              <i class="pyt-close-16 close-search hidden-xs"></i>
+                                              <a target="_self" href="/">
+                                              <i class="pyt-close-16 close-search hidden-xs"></i></a>
+                                              <div class="arrows visible-xs"><a class="pull-left" href="#">
+                                                <i class="pyt-arrow-left-16"></i></a>
+                                                <a class="pull-right disabled" href="#">
+                                                  <i class="pyt-arrow-right-16"></i></a></div></div>
+                                                  
+                                                  
+                                                  <ul class="clearfix list-unstyled mb-0">
+                                                    <li class="active"></li><li class="active"></li>
+                                                    <li class="active"></li><li class="active"></li><li>
+      
+                                                    </li></ul></section></section>
+            <section class="clearfix pdg-interests next-slide search-options-wrapper slide-left-in showed">
+              <div class="clearfix text-center pdg-title hidden-xs"><h4>What do you like to see and do?</h4>
+              </div><div class="clearfix row-eq-hgt"><div class="clearfix row-eq-hgt n-tracker-totalseeanddo">
+              
+                <div class="pdg-card n-tracker-seeanddo-2">
+                  
+                  <input type="checkbox" id="2" name="interest-card-input" value="2" (click)="catagory5(1)">
+                  <div class="pdg-card-content"><label for="2"><span class="img int-img-2"></span>
+                  <i class="tick-icon"></i><p>Art &amp; Culture</p></label></div></div>
+                  
+                  <div class="pdg-card n-tracker-seeanddo-1">
+                    <input type="checkbox" id="1" name="interest-card-input" value="1" (click)="catagory5(2)">
+                    <div class="pdg-card-content"><label for="1"><span class="img int-img-1"></span>
+                    <i class="tick-icon"></i><p>Adventure &amp; Outdoor</p></label></div></div>
+                    
+                    <div class="pdg-card n-tracker-seeanddo-3">
+                      <input type="checkbox" id="3" name="interest-card-input" value="3" (click)="catagory5(3)">
+                      <div class="pdg-card-content"><label for="3"><span class="img int-img-3"></span>
+                      <i class="tick-icon"></i><p>Food &amp; Nightlife</p></label></div></div>
+                      
+                      <div class="pdg-card n-tracker-seeanddo-4">
+                        <input type="checkbox" id="4" name="interest-card-input" value="4" (click)="catagory5(4)">
+                        <div class="pdg-card-content"><label for="4"><span class="img int-img-4"></span>
+                        <i class="tick-icon"></i><p>Shopping &amp; Leisure</p></label></div></div>
+                        
+                       
+                        
+                          
+                          </div></div></section></section></div>
+                          
+                          </div></div>
+                <div class="modal-backdrop fade"></div></div></div>
+            
+           
+         
+      
+       
+      </body></html>
+      </div>
+      
+
 
 
 <div *ngIf="last">

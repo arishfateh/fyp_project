@@ -33,7 +33,11 @@ const ItineraryScheme = new Schema({
 
     todo: [{
         type: Schema.Types.Mixed,
-    }]
+    }],
+    scores: [{
+        type: Schema.Types.Mixed,
+    }],
+
 
 
 })

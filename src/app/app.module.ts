@@ -58,6 +58,7 @@ import { SearchComponent } from './compnents/search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Search2Component, DialogOverviewExampleDialog } from './compnents/search2/search2.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { RecommenderComponent } from './compnents/recommender/recommender.component';
 
 
 @NgModule({
@@ -93,6 +94,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     SearchComponent,
     Search2Component,
     DialogOverviewExampleDialog,
+    RecommenderComponent,
   ],
   imports: [
     BrowserModule,

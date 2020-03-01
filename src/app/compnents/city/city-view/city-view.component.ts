@@ -76,15 +76,15 @@ export class CityViewComponent implements OnInit {
 
   }
 
-  local() {
-    let Itinerary: Array<City> = JSON.parse(localStorage.getItem('city'));
+  // local() {
+  //   let Itinerary: Array<City> = JSON.parse(localStorage.getItem('city'));
 
-    for (var i = 0; i < Itinerary.length; i++) {
-      this.Service.addCity(Itinerary[i]);
-      console.log("added")
-    }
+  //   for (var i = 0; i < Itinerary.length; i++) {
+  //     this.Service.addCity(Itinerary[i]);
+  //     console.log("added")
+  //   }
 
-  }
+  // }
   getData() {
 
     //to display from firebase

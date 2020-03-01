@@ -46,13 +46,17 @@ export class SearchComponent implements OnInit {
   public display3 = null;
   public TripType = null
   public last = null;
-
+  public catagory51=null;
+public catagory21=null;
+public catagory31=null;
+public catagory41=null;
 
 
   public cityList: City[];
   public routeList: Route[];
   public attractionList: AttractionPoint[];
 
+  public scorelist:Array<number>=[];
 
   public source: string = "Hunza";
   public destination: string;
@@ -62,7 +66,10 @@ export class SearchComponent implements OnInit {
 
   public total_num_days: number;
 
-  constructor(config: NgbCarouselConfig,public router: Router, private fb: FormBuilder, public attractionService: AttractionPointService, public cityService: CityService,public itineraryService: ItineraryService, public forall: ForallService,
+  constructor(config: NgbCarouselConfig,public router: Router, 
+    private fb: FormBuilder, public attractionService: AttractionPointService,
+     public cityService: CityService,
+     public itineraryService: ItineraryService, public forall: ForallService,
   ) {
     config.interval = 10000;
     config.wrap = true;
@@ -117,10 +124,19 @@ export class SearchComponent implements OnInit {
   
   ngOnInit() {
   
+    console.log("asas")
+    
+    console.log("fas")
+    this.itineraryService.getAllItinerary().subscribe(data=>{
+      this.itineraryList=data;
+    })
+    this.itineraryList.forEach(value=>{
+      console.log(value, 'daasd')
+    })
+    
     this.getcityData();
     this.getrouteData();
     this.getattractionData();
-
     
     this.display = null;
     this.display1 = null;
@@ -130,6 +146,9 @@ export class SearchComponent implements OnInit {
 
 
   }
+
+  public itineraryList:Array<Itinerary>=[];
+  
   getattractionData() {
 
 
@@ -306,11 +325,79 @@ export class SearchComponent implements OnInit {
   }
   */
 
-  fullfinal(){
+ catagory1(imi){
     this.TripType=null;
-    this.last="ds";
-    this.completesearch();
+    this.catagory21="AA"
+
+    this.scorelist.push(imi);
+    //this.last="ds";
+    //this.completesearch();
   }
+  catagory2(imi){
+    this.catagory21=null;
+    this.catagory31='wd';
+    this.scorelist.push(imi);
+    //this.last="ds";
+    //this.completesearch();
+  }
+  catagory3(imi){
+    this.catagory31=null;
+    this.catagory41='ds';
+    this.scorelist.push(imi);
+    //this.last="ds";
+    //this.completesearch();
+  }
+  catagory4(imi){
+    this.catagory41=null;
+    this.catagory51='as';
+    this.scorelist.push(imi);
+    //this.last="ds";
+    //this.completesearch();
+  }
+  
+  catagory5(imi){
+    this.catagory51=null;
+    this.scorelist.push(imi);
+    //this.catagory41='as';
+    this.last="ds";
+    if(this.recommender=='recommender'){
+    this.recommernderfunction();
+    }
+    else{
+      this.completesearch();
+    }
+    
+    console.log(this.scorelist);
+  }
+  
+  public recommender:string="recommender";
+
+  public recommenderItineraryArray:Array<Itinerary>=[];
+recommernderfunction(){
+  console.log("recommender")
+  console.log(this.itineraryList)
+
+  for(var i=0;i<this.itineraryList.length;i++){
+    for(var j=0;j<this.scorelist.length;j++){
+      if(this.itineraryList[i].scores.find(a=>a== this.scorelist[j])){
+        console.log("in if 1")
+        if(this.recommenderItineraryArray.find(a=>this.itineraryList[i])){
+          console.log("in if 2")
+          
+          break;
+        }
+        else{
+          console.log("in else 2")
+          this.recommenderItineraryArray.push(this.itineraryList[i])
+          break;
+        }
+      }
+    }
+  }
+console.log(this.recommenderItineraryArray);
+}
+
+
   public checkier:number=0;
   public putroute:Array<Route>=[];
   findroutes(source,destination){
@@ -809,6 +896,7 @@ console.log(destination)
   this.daysiti=this.itinerary;
 
 this.iti.todo=this.daysiti;
+this.iti.scores=this.scorelist;
 
 this.itineraryService.additnerarylocal(this.iti);
 
@@ -837,7 +925,7 @@ getData() {
 }*/
   }
 getCost(){
-
+  this.itineraryService.addItinerary(this.iti);
 }
 
 

@@ -13,7 +13,7 @@ const city = require("./routes/api/city");
 const route = require("./routes/api/routes");
 
 //////
-require('dotenv').config()
+
 
 
 const hotels = require("./routes/api/hotels");

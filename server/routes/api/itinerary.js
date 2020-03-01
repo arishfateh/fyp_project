@@ -34,6 +34,8 @@ router.post(
                 NoOfPeople: req.body.NoOfPeople,
                 TotalCost: req.body.TotalCost,
                 todo: req.body.todo,
+                scores: req.body.scores,
+
 
 
             }
@@ -50,16 +52,20 @@ router.get("/getAllItinerary",
             session: false
         }),
         */
+
     (req, res) => {
+        console.log("in get")
         Itinerary.find()
             .then(cit => {
                 if (!cit) {
                     return res.status(404).json(errors);
                 }
+                console.log(cit);
                 res.json(cit);
             })
             .catch(err => res.status(404).json({
                 cit: 'There is no itinerary'
+
             }));
 
     });

@@ -10,4 +10,5 @@ export class Itinerary {
     NoOfPeople: number;
     TotalCost: number;
     todo: Array<Days> = [];
+    scores: Array<number> = [];
 }

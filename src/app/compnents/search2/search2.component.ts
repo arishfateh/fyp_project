@@ -194,6 +194,7 @@ export class Search2Component implements OnInit {
     this.tempitinerary.PriceBracket = Itinerary["PriceBracket"];
     this.tempitinerary.TotalCost = Itinerary["TotalCost"];
     this.tempitinerary.todo = Itinerary['todo'];
+    this.tempitinerary.scores = Itinerary['scores']
 
     console.log(this.tempitinerary);
 

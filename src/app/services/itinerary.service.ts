@@ -111,6 +111,7 @@ export class ItineraryService {
     // const dealers: Array<Dealer> = (this.http.get(`${this.uri}/getAllDealers`));
     // let dealer: Array<Dealer> = _.clon(this.http.get(`${this.uri}/getAllDealers`));
 
+    console.log("itinerrt")
     //return this.http.get(`${this.uri}/getAllDealers`).pipe(map((response: any) => response.json()));
     return this.http.get<Itinerary[]>(`${this.uri}/getAllItinerary`)
 
