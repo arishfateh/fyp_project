@@ -188,7 +188,7 @@ export class Search2Component implements OnInit {
     console.log(Itinerary);
     this.tempitinerary.Destination = Itinerary["Destination"];
     this.tempitinerary.GroupType = Itinerary["GroupType"];
-    this.tempitinerary.ID = Itinerary['ID'];
+    this.tempitinerary._id = Itinerary['_id'];
     this.tempitinerary.NoOfDays = Itinerary["NoOfDays"];
     this.tempitinerary.NoOfPeople = Itinerary["NoOfPeople"];
     this.tempitinerary.PriceBracket = Itinerary["PriceBracket"];

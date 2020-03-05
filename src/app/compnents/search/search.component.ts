@@ -373,6 +373,10 @@ public catagory41=null;
   public recommender:string="recommender";
 
   public recommenderItineraryArray:Array<Itinerary>=[];
+
+  public maximum:number=0;
+  public maxi:number=0;
+  public indexmax:number;
 recommernderfunction(){
   console.log("recommender")
   console.log(this.itineraryList)
@@ -381,9 +385,9 @@ recommernderfunction(){
     for(var j=0;j<this.scorelist.length;j++){
       if(this.itineraryList[i].scores.find(a=>a== this.scorelist[j])){
         console.log("in if 1")
-        if(this.recommenderItineraryArray.find(a=>this.itineraryList[i])){
+        if(this.recommenderItineraryArray.find(a=>a._id==this.itineraryList[i]._id)){
           console.log("in if 2")
-          
+          console.log(this.itineraryList[i]._id)
           break;
         }
         else{
@@ -394,7 +398,77 @@ recommernderfunction(){
       }
     }
   }
-console.log(this.recommenderItineraryArray);
+  console.log(this.recommenderItineraryArray);
+// all itineraries fetched
+
+//now itineraries filtered on basis of days
+this.recommenderItineraryArray=this.recommenderItineraryArray.filter(a=>a.Destination==this.destination);
+console.log(this.recommenderItineraryArray,"filtered destination");
+
+
+this.recommenderItineraryArray=this.recommenderItineraryArray.filter(a=>a.NoOfDays==parseInt(this.no_of_days));
+console.log(this.recommenderItineraryArray,"filtered no of days");
+
+if(this.recommenderItineraryArray.length==0){
+  this.completesearch();
+}
+else{
+  if(this.recommenderItineraryArray.length==1){
+    this.itinerary=this.recommenderItineraryArray[0].todo;
+    console.log(this.itinerary,"length=1")
+  }
+  ///chooses between the highest priority location 
+  else if(this.recommenderItineraryArray.length==2){
+    console.log("in else of 2");
+    for(var i=0;i<this.recommenderItineraryArray[0].NoOfDays;i++){
+      console.log(this.recommenderItineraryArray[0].NoOfDays," e ",i);
+      var cit=this.cityList.find(a=>a.CityName==this.recommenderItineraryArray[0].todo[i].cityname)
+      var cit2=this.cityList.find(a=>a.CityName==this.recommenderItineraryArray[1].todo[i].cityname)
+      if(cit.StayPriority>cit2.StayPriority){
+        this.itinerary[i]=this.recommenderItineraryArray[0].todo[i];
+      }
+      
+      // chooses betweeen the max of stays of people
+      else{
+        
+        this.itinerary[i]=this.recommenderItineraryArray[1].todo[i];
+      }
+    }
+    console.log(this.itinerary,"length=2")
+  }
+  else{
+    //if error remove = from for loop i 
+    for(var i=0;i<=this.recommenderItineraryArray[0].NoOfDays;i++){
+      console.log(this.recommenderItineraryArray[0].NoOfDays," no of days")
+      for(var j=0;j<this.recommenderItineraryArray.length;j++){
+        this.maxi=0;
+        for(var k=0;k<this.recommenderItineraryArray.length;k++){
+          if(this.recommenderItineraryArray[j].todo[i].cityname==this.recommenderItineraryArray[k].todo[i].cityname){
+            this.maxi=this.maxi+1
+            
+            console.log(this.recommenderItineraryArray[j].todo[i].cityname," ",this.recommenderItineraryArray[k].todo[i].cityname)
+            console.log("maxi= ",this.maxi)
+          }
+          
+    }
+    if(this.maxi>this.maximum){
+      console.log("in maxi")
+      this.maximum=this.maxi
+      this.indexmax=j;
+
+    }
+  }
+  console.log(this.indexmax," indexmax")
+    this.itinerary[i]=this.recommenderItineraryArray[this.indexmax].todo[i];
+    console.log(this.itinerary,"length=3")
+  }
+}
+
+/*for(var i=0;i<this.recommenderItineraryArray.length;i++){
+  this.recommenderItineraryArray
+}
+*/
+}
 }
 
 
@@ -720,9 +794,11 @@ tempreverse:Array<City>=[]
 attractionordering(){
     var i=1;{
       for(var j=0;j<this.attractionPointsGo.length;j++){
+        if(this.itinerary[i].AttractionPoints!=null){
         this.itinerary[i].AttractionPoints.push(this.attractionPointsGo[j]);
         i=i+1
       }
+    }
       console.log(this.attractionPointsDestination);
       for(var j=0;j<this.attractionPointsDestination.length;j++){
         console.log(this.itinerary[i])
@@ -925,6 +1001,20 @@ getData() {
 }*/
   }
 getCost(){
+  this.iti=new Itinerary;
+  this.iti.Destination=this.destination;
+  this.iti.GroupType="lol";
+  this.iti.NoOfDays=parseInt(this.no_of_days);
+  this.iti.NoOfPeople=5;
+  this.iti.PriceBracket="3000";
+  this.iti.TotalCost=45000;
+  
+
+  this.daysiti=this.itinerary;
+
+this.iti.todo=this.daysiti;
+this.iti.scores=this.scorelist;
+
   this.itineraryService.addItinerary(this.iti);
 }
 
